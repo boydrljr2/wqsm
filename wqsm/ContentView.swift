@@ -18,26 +18,25 @@ struct ContentView: View {
                     TabView {
                         Text("Runs")
                             .tabItem {
-                                Image(systemName: "star.fill")
+                                Image(systemName: "hare")
                                 Text("Runs")
                             }
                         SitesPage()
                             .tabItem {
-                                Image(systemName: "map.fill")
+                                Image(systemName: "globe")
                                 Text("Sites")
                             }
                         TestsPage()
                             .tabItem {
-                                Image(systemName: "map.fill")
+                                Image(systemName: "rosette")
                                 Text("Tests")
                             }
                         Text("Info")
                             .tabItem {
                                 Image(systemName: "info.circle")
-                                Text("Sites")
+                                Text("Info")
                             }
                     }
-                    .background(Color("Secondary"))
                     
                 }
             }
