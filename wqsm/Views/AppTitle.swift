@@ -10,9 +10,9 @@ import SwiftUI
 struct AppTitle: View {
     var body: some View {
         VStack {
-            Spacer()
-            Text("MQSM App")
-            Spacer()
+            Text("WQSM App")
+                .foregroundColor(Color("Primary"))
+                .bold()
         }
         .padding()
     }

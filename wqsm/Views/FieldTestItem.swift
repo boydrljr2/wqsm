@@ -13,14 +13,15 @@ struct FieldTestItem: View {
     
     var body: some View {
         
-        HStack {
+        HStack{
             Text(fieldTest.name)
             Text(fieldTest.value)
             Text(fieldTest.time)
         }
-        .frame(maxWidth: .infinity, alignment: .leading )
+
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .font(.title2)
         .padding()
-        .border(Color.black, width: 1)
     }
 }
 

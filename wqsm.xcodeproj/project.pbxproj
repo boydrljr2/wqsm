@@ -11,6 +11,11 @@
 		90956CB22A96CFD100130390 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CB12A96CFD100130390 /* ContentView.swift */; };
 		90956CB42A96CFD200130390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90956CB32A96CFD200130390 /* Assets.xcassets */; };
 		90956CB72A96CFD200130390 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90956CB62A96CFD200130390 /* Preview Assets.xcassets */; };
+		90956CC02A96D41D00130390 /* AppTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CBF2A96D41D00130390 /* AppTitle.swift */; };
+		90956CC22A96D70100130390 /* FieldTestItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CC12A96D70100130390 /* FieldTestItem.swift */; };
+		90956CC52A96D78500130390 /* FieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CC42A96D78500130390 /* FieldTest.swift */; };
+		90956CC72A96DDB600130390 /* FieldTestItemList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CC62A96DDB600130390 /* FieldTestItemList.swift */; };
+		90956CC92A96DE8100130390 /* FieldTestItemListTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CC82A96DE8100130390 /* FieldTestItemListTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +25,11 @@
 		90956CB32A96CFD200130390 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90956CB62A96CFD200130390 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		90956CB82A96CFD200130390 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90956CBF2A96D41D00130390 /* AppTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTitle.swift; sourceTree = "<group>"; };
+		90956CC12A96D70100130390 /* FieldTestItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTestItem.swift; sourceTree = "<group>"; };
+		90956CC42A96D78500130390 /* FieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTest.swift; sourceTree = "<group>"; };
+		90956CC62A96DDB600130390 /* FieldTestItemList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTestItemList.swift; sourceTree = "<group>"; };
+		90956CC82A96DE8100130390 /* FieldTestItemListTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTestItemListTitle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +62,8 @@
 		90956CAE2A96CFD100130390 /* wqsm */ = {
 			isa = PBXGroup;
 			children = (
+				90956CC32A96D76C00130390 /* Model */,
+				90956CBE2A96D3FB00130390 /* Views */,
 				90956CAF2A96CFD100130390 /* wqsmApp.swift */,
 				90956CB12A96CFD100130390 /* ContentView.swift */,
 				90956CB32A96CFD200130390 /* Assets.xcassets */,
@@ -67,6 +79,25 @@
 				90956CB62A96CFD200130390 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		90956CBE2A96D3FB00130390 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				90956CBF2A96D41D00130390 /* AppTitle.swift */,
+				90956CC12A96D70100130390 /* FieldTestItem.swift */,
+				90956CC62A96DDB600130390 /* FieldTestItemList.swift */,
+				90956CC82A96DE8100130390 /* FieldTestItemListTitle.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		90956CC32A96D76C00130390 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				90956CC42A96D78500130390 /* FieldTest.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +169,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90956CC52A96D78500130390 /* FieldTest.swift in Sources */,
+				90956CC92A96DE8100130390 /* FieldTestItemListTitle.swift in Sources */,
+				90956CC02A96D41D00130390 /* AppTitle.swift in Sources */,
+				90956CC22A96D70100130390 /* FieldTestItem.swift in Sources */,
 				90956CB22A96CFD100130390 /* ContentView.swift in Sources */,
 				90956CB02A96CFD100130390 /* wqsmApp.swift in Sources */,
+				90956CC72A96DDB600130390 /* FieldTestItemList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
