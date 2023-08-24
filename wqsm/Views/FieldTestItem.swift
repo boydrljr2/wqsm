@@ -14,11 +14,11 @@ struct FieldTestItem: View {
     var body: some View {
         
         HStack{
+            Text("\(fieldTest.id)")
             Text(fieldTest.name)
             Text(fieldTest.value)
             Text(fieldTest.time)
         }
-
         .frame(maxWidth: .infinity, alignment: .leading)
         .font(.title2)
         .padding()

@@ -1,6 +1,13 @@
+//
+//  TestsPage.swift
+//  wqsm
+//
+//  Created by bobsDevMac on 8/24/23.
+//
+
 import SwiftUI
 
-struct FieldTestItemList: View {
+struct TestsPage: View {
     var fieldTests: [FieldTest] = [
         FieldTest(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
         FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
@@ -11,13 +18,13 @@ struct FieldTestItemList: View {
     var body: some View {
         List {
             ForEach(fieldTests) { fieldTest in
-                FieldTestRow(fieldTest: fieldTest)
+                TestPageRow(fieldTest: fieldTest)
             }
         }
     }
 }
 
-struct FieldTestRow: View {
+struct TestPageRow: View {
     var fieldTest: FieldTest
     
     var body: some View {
@@ -30,13 +37,13 @@ struct FieldTestRow: View {
             Spacer()
             Text(fieldTest.time)
         }
-        .font(.title2)
+        .font(.body)
         .padding(.vertical, 8)
     }
 }
 
-struct FieldTestItemList_Previews: PreviewProvider {
+struct TestsPage_Previews: PreviewProvider {
     static var previews: some View {
-        FieldTestItemList()
+        TestsPage()
     }
 }

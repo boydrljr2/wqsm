@@ -9,12 +9,15 @@ import SwiftUI
 
 struct AppTitle: View {
     var body: some View {
-        VStack {
-            Text("WQSM App")
-                .foregroundColor(Color("Primary"))
-                .bold()
+        HStack {
+            Image("logo")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(maxHeight: 50)
+            Spacer()
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: 50)
+        .padding(.leading)
     }
 }
 
