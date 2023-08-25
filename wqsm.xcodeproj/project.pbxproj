@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90137C0F2A994FC60051AED8 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90137C0E2A994FC60051AED8 /* Run.swift */; };
+		90137C112A9954920051AED8 /* RunsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90137C102A9954920051AED8 /* RunsPage.swift */; };
 		90956CB02A96CFD100130390 /* wqsmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CAF2A96CFD100130390 /* wqsmApp.swift */; };
 		90956CB22A96CFD100130390 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CB12A96CFD100130390 /* ContentView.swift */; };
 		90956CB42A96CFD200130390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90956CB32A96CFD200130390 /* Assets.xcassets */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90137C0E2A994FC60051AED8 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
+		90137C102A9954920051AED8 /* RunsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsPage.swift; sourceTree = "<group>"; };
 		90956CAC2A96CFD100130390 /* wqsm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wqsm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90956CAF2A96CFD100130390 /* wqsmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wqsmApp.swift; sourceTree = "<group>"; };
 		90956CB12A96CFD100130390 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 			children = (
 				90956CC42A96D78500130390 /* FieldTest.swift */,
 				90B0D9C52A99004B0079423F /* Site.swift */,
+				90137C0E2A994FC60051AED8 /* Run.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -104,6 +109,7 @@
 			children = (
 				90C6A5942A97EE1400E43F69 /* FieldTestsPage.swift */,
 				90C6A5962A97F1B500E43F69 /* SitesPage.swift */,
+				90137C102A9954920051AED8 /* RunsPage.swift */,
 			);
 			path = "Page Views";
 			sourceTree = "<group>";
@@ -178,6 +184,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				90956CC52A96D78500130390 /* FieldTest.swift in Sources */,
+				90137C112A9954920051AED8 /* RunsPage.swift in Sources */,
+				90137C0F2A994FC60051AED8 /* Run.swift in Sources */,
 				90C6A5972A97F1B500E43F69 /* SitesPage.swift in Sources */,
 				90C6A5952A97EE1400E43F69 /* FieldTestsPage.swift in Sources */,
 				90956CC02A96D41D00130390 /* AppTitle.swift in Sources */,
