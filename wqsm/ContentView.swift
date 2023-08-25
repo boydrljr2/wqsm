@@ -13,8 +13,8 @@ struct ContentView: View {
         VStack {
             AppTitle()
             Spacer()
-            NavigationView {
-                VStack {
+            //NavigationView {
+                //VStack {
                     TabView {
                         Text("Runs")
                             .tabItem {
@@ -26,7 +26,7 @@ struct ContentView: View {
                                 Image(systemName: "globe")
                                 Text("Sites")
                             }
-                        TestsPage()
+                        FieldTestsPage()
                             .tabItem {
                                 Image(systemName: "rosette")
                                 Text("Tests")
@@ -37,9 +37,8 @@ struct ContentView: View {
                                 Text("Info")
                             }
                     }
-                    
-                }
-            }
+//                }
+//            }
         }
     }
 }

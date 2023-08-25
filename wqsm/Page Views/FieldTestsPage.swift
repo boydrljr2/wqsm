@@ -1,6 +1,14 @@
+//
+//  SitesPage.swift
+//  wqsm
+//
+//  Created by bobsDevMac on 8/24/23.
+//
+
 import SwiftUI
 
-struct TestsPage: View {
+struct FieldTestsPage: View {
+    
     var fieldTests: [FieldTest] = [
         FieldTest(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
         FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
@@ -14,6 +22,8 @@ struct TestsPage: View {
         
         NavigationView {
             List {
+                
+                //Test Table layout header
                 HStack {
                     Text("Id")
                         .frame(width: 50, alignment: .leading)
@@ -23,23 +33,23 @@ struct TestsPage: View {
                         Spacer()
                     Text("Time")
                 }
-                .background(Color("Background"))
                 .font(.title3)
+                
                 
                 ForEach(fieldTests.indices, id: \.self) { index in
                     let fieldTest = fieldTests[index]
-                    TestPageRow(fieldTest: fieldTest)
-                        .background(index % 2 == 0 ? Color.clear : Color("Background"))
+                    FieldTestsPageRow(fieldTest: fieldTest)
+                        .background(index % 2 == 1 ? Color.clear : Color("Background"))
                 }
             }
-            .listStyle(PlainListStyle())
+            //.listStyle(PlainListStyle())
             .navigationTitle("Field Test Data")
-            Spacer()
+            //Spacer()
         }
     }
 }
 
-struct TestPageRow: View {
+struct FieldTestsPageRow: View {
     
     var fieldTest: FieldTest
     
@@ -58,8 +68,8 @@ struct TestPageRow: View {
     }
 }
 
-struct TestsPage_Previews: PreviewProvider {
+struct FieldTestsPage_Previews: PreviewProvider {
     static var previews: some View {
-        TestsPage()
+        FieldTestsPage()
     }
 }

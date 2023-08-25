@@ -16,7 +16,7 @@ struct AppTitle: View {
                 .frame(maxHeight: 50)
             Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: 50)
+        //.frame(maxWidth: .infinity, maxHeight: 50)
         .padding(.leading)
     }
 }
