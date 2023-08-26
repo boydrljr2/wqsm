@@ -12,11 +12,11 @@ struct ContentView: View {
     var body: some View {
         VStack {
             AppTitle()
-            Spacer()
-            //NavigationView {
-                //VStack {
+            //Spacer()
+            NavigationView {
+                VStack {
                     TabView {
-                        Text("Runs")
+                        RunsPage()
                             .tabItem {
                                 Image(systemName: "hare")
                                 Text("Runs")
@@ -37,8 +37,8 @@ struct ContentView: View {
                                 Text("Info")
                             }
                     }
-//                }
-//            }
+                }
+            }
         }
     }
 }

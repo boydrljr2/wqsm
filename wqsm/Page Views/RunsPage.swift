@@ -22,7 +22,7 @@ struct RunsPage: View {
         Run(id: 3, name: "CITY A2",
             serial: "2304024", wn: "WN",
             numberSites: 9, numberCompleted: 8, numberOffline: 1, numberTasks: 1),
-        Run(id: 4, name: "City Deliver Sample from Millbrae to Sunol",
+        Run(id: 4, name: "City Deliver Sample Millbrae to Sunol",
             serial: "", wn: "WN, BH",
             numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0),
     ]
@@ -33,8 +33,10 @@ struct RunsPage: View {
             List {
                 ForEach(runs.indices, id: \.self) { index in
                     let run = runs[index]
-                    RunsPageRow(run: run)
-                        .background(index % 2 == 1 ? Color.clear : Color("Background"))
+                    NavigationLink( destination: SitesPage()) {
+                        RunsPageRow(run: run)
+                            .background(index % 2 == 1 ? Color.clear : Color("Background"))
+                    }
                 }
             }
             .navigationTitle("Runs")
@@ -43,10 +45,32 @@ struct RunsPage: View {
 }
 
 struct RunsPageRow : View {
+    
     var run: Run
+    
     var body: some View {
-        HStack{
-            Text("\(run.name)")
+        VStack {
+            
+            HStack{
+                Text("\(run.name)").font(.title3).bold()
+                Spacer()
+            }
+            
+            HStack {
+                Text(run.serial != "" ? run.serial + " | " : "")
+                Text(run.wn == "" ? "" : run.wn)
+                Spacer()
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .font(.body)
+            
+            HStack {
+                Text(run.numberSites != 0 ? "\(run.numberSites) Sites " : "")
+                Text(run.numberCompleted != 0 ? "\(run.numberCompleted) Completed " : "")
+                Text(run.numberOffline != 0 ? "\(run.numberOffline) Offline " : "")
+                Text(run.numberTasks != 0 ? "\(run.numberTasks) Tasks" : "")
+                Spacer()
+            }
         }
     }
 }
