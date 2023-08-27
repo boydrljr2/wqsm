@@ -27,6 +27,7 @@ struct RunsPage: View {
             numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0),
     ]
     
+    
     var body: some View {
         
         NavigationView {

@@ -11,10 +11,11 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            AppTitle()
+            //AppTitle()
             //Spacer()
             NavigationView {
                 VStack {
+                    AppTitle()
                     TabView {
                         RunsPage()
                             .tabItem {

@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct wqsmApp: App {
+    
+    //Create environmentobject singletons
+    var runsManager = RunsManager()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(runsManager)
         }
     }
 }
