@@ -23,9 +23,9 @@ struct BottlesPage: View {
                     //Spacer()
                     Text("Bottle")
                         //.frame(width: 80, alignment: .leading)
-                    Spacer()
-                    Text("Collected")
-                        .frame(alignment: .leading)
+                    //Spacer()
+                    //Text("Collected")
+                    //    .frame(alignment: .leading)
                     Spacer()
                     Text("Time")
                         .frame(alignment: .trailing)
@@ -35,6 +35,8 @@ struct BottlesPage: View {
                     let bottle = bottleManager.bottles[index]
                     BottlesItemRow(bottle: bottle)
                         .background(index % 2 == 1 ? Color.clear : Color("Background"))
+                    //BottlesItemRow(bottle: self.$bottleManager.bottles[index])
+                    //  .background(index % 2 == 1 ? Color.clear : Color("Background"))
                 }
                 .navigationTitle("Bottles to Collect")
 
@@ -47,12 +49,26 @@ struct BottlesPage: View {
 struct BottlesItemRow : View {
     
     var bottle: Bottle
+    //@Binding var bottle: Bottle //using @Binding instead of just a var
+    
     
     var body: some View {
         HStack {
             Text("\(bottle.id)")
             Text(bottle.name)
-            Text(" ")
+                .frame(width: 220)
+            //Text(" ")
+            Image(systemName: bottle.collectedTimeStamp == "" ?
+                    "square.fill.and.line.vertical.and.square" :
+                    "square.and.line.vertical.and.square.fill")
+                .resizable()
+                .frame(maxWidth: 25, maxHeight: 20, alignment: .trailing)
+            //Add Toggle here
+            //Toggle(isOn: $bottle.collected) {
+            //    Text("Collected")
+            // }
+            // .labelsHidden()
+            
             Spacer()
             Text(bottle.collectedTimeStamp)
                 .frame(alignment: .trailing)

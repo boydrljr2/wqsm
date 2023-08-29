@@ -45,6 +45,7 @@ struct FieldTestsPage: View {
 struct FieldTestsPageRow: View {
     
     var fieldTest: FieldTest
+    //@State private var fieldValue: String
     
     var body: some View {
         HStack {
@@ -53,15 +54,27 @@ struct FieldTestsPageRow: View {
                 // Adjust the width as needed
             Text(fieldTest.name)
                 .frame(width: 160, alignment: .leading)
-            //Spacer()
+            Spacer()
             Text(fieldTest.value)
+               .frame(width: 50, alignment: .trailing)
+            /*
+            TextField("", text: $fieldValue )
                 .frame(width: 50, alignment: .trailing)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .multilineTextAlignment(.trailing)
+                .keyboardType(.numberPad)
+                //.onCommit {
+                //  if fieldValue.count > 4 {
+                //      fieldValue = String(fieldValue.prefix(4))
+                //  }
+                //}
+            */
             Spacer()
             Text(fieldTest.time)
                 .frame(width: 80, alignment: .trailing)
         }
         //.font(.body)
-        //.padding(.vertical, 8)
+        .padding(.vertical, 5)
     }
 }
 

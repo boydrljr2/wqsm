@@ -85,7 +85,7 @@ struct AllDataSitesPageRow: View {
                     .frame(width: 30, alignment : .leading)
                 //Spacer()
                 Text("Bottle")
-                    .frame(width: 160, alignment: .leading)
+                    .frame(width: 220, alignment: .leading)
                 //Spacer()
                 //Text("Collected")
                 //    .frame(alignment: .leading)
@@ -135,16 +135,55 @@ struct AllDataBottlesItemRow : View {
     var body: some View {
         HStack {
             Text("\(bottle.id)")
-                .frame(width: 30, alignment: .leading)
+                .frame(width: 20, alignment: .leading)
             Text(bottle.name)
-                .frame(width: 160, alignment: .leading).font(.caption)
+                .frame(width: 200, alignment: .leading)//.font(.caption)
             //Text(" ")
+            Image(systemName: bottle.collectedTimeStamp == "" ?
+                    "square.fill.and.line.vertical.and.square" :
+                    "square.and.line.vertical.and.square.fill")
+                .resizable()
+                .frame(maxWidth: 25, maxHeight: 20, alignment: .trailing)
             Spacer()
             Text(bottle.collectedTimeStamp)
                 .frame(alignment: .trailing).font(.body)
         }
     }
 }
+
+/*
+ 
+ struct BottlesItemRow : View {
+     
+     var bottle: Bottle
+     //@Binding var bottle: Bottle //using @Binding instead of just a var
+     
+     
+     var body: some View {
+         HStack {
+             Text("\(bottle.id)")
+             Text(bottle.name)
+                 .frame(width: 220)
+             //Text(" ")
+             Image(systemName: bottle.collectedTimeStamp == "" ?
+                     "square.fill.and.line.vertical.and.square" :
+                     "square.and.line.vertical.and.square.fill")
+                 .resizable()
+                 .frame(maxWidth: 25, maxHeight: 20, alignment: .trailing)
+             //Add Toggle here
+             //Toggle(isOn: $bottle.collected) {
+             //    Text("Collected")
+             // }
+             // .labelsHidden()
+             
+             Spacer()
+             Text(bottle.collectedTimeStamp)
+                 .frame(alignment: .trailing)
+         }
+     }
+ }
+ 
+ */
 
 struct AllDataPage_Previews: PreviewProvider {
     static var previews: some View {

@@ -19,11 +19,14 @@ struct AppTitle: View {
                 .frame(maxHeight: 40)
             Text("WQSM").font(.title).bold()
             Spacer()
-            Image(systemName: "cloud")
+            Image(systemName: "arrow.clockwise.icloud")
                 .resizable()
                 .frame(maxWidth: 50, maxHeight: 25)
             Spacer()
-            Text("Aug 29, 2023").font(.body)
+            Text("Aug 29, 2023")
+                .font(.body)
+                .padding(.trailing)
+
         }
         //.frame(maxWidth: .infinity, maxHeight: 50)
         .padding(.leading)
