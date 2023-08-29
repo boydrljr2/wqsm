@@ -61,7 +61,7 @@ struct RunsPageRow : View {
                 Text(run.numberOffline != 0 ? "\(run.numberOffline) Offline " : "")
                 Text(run.numberTasks != 0 ? "\(run.numberTasks) Tasks" : "")
                 Spacer()
-            }
+            }.font(.caption)
         }
     }
 }

@@ -12,7 +12,7 @@ class AllDataManager: ObservableObject {
     @Published var allDatas : [AllData] = [
         AllData (id: 0, name: "EB1 (MON) SUNOL",
             serial: "2303889", wn: "WN",
-            numberSites: 5, numberCompleted: 5, numberOffline: 0, numberTasks: 0,
+            numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
                 Site2(id: 0,
                       name: "Alameda East",
@@ -49,7 +49,7 @@ class AllDataManager: ObservableObject {
            ),
         AllData (id: 1, name: "Sunol NRD Pickup",
                  serial: "", wn: "WN",
-                 numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0,
+                 numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
                 Site2(id: 0,
                       name: "Alameda East",

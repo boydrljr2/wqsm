@@ -19,6 +19,16 @@ struct AllDataPage: View {
                     Section(header: Text(allData.name)
                         .font(.title3))
                     {
+                        HStack {
+                            Text(allData.serial != "" ? "Serial: \(allData.serial)" : "")
+                            Text(allData.wn != "" ? " \(allData.wn) " : "" )
+                            Spacer()
+                            Text(allData.numberSites != 0 ? "\(allData.numberSites) Sites " : "")
+                            Text(allData.numberCompleted != 0 ? "\(allData.numberCompleted) Completed " : "")
+                            Text(allData.numberOffline != 0 ? "\(allData.numberOffline) Offline " : "")
+                            Text(allData.numberTasks != 0 ? "\(allData.numberTasks) Tasks" : "")
+                            Spacer()
+                        }.font(.caption)
                         ForEach(allData.sites.indices, id: \.self) { index in
                             let site = allData.sites[index]
                             AllDataSitesPageRow(site : site)
