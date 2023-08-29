@@ -24,6 +24,6 @@ class RunsManager: ObservableObject {
             numberSites: 9, numberCompleted: 8, numberOffline: 1, numberTasks: 1),
         Run(id: 4, name: "City Deliver Sample Millbrae to Sunol",
             serial: "", wn: "WN, BH",
-            numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0),
+            numberSites: 4, numberCompleted: 4, numberOffline: 4, numberTasks: 4),
     ]
 }

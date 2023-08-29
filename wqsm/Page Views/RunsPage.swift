@@ -9,31 +9,16 @@ import SwiftUI
 
 struct RunsPage: View {
     
-    var runs: [Run] = [
-        Run(id: 0, name: "EB1 (MON) SUNOL",
-            serial: "2303889", wn: "WN",
-            numberSites: 5, numberCompleted: 5, numberOffline: 0, numberTasks: 0),
-        Run(id: 1, name: "Sunol NRD Pickup",
-            serial: "", wn: "WN",
-            numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0),
-        Run(id: 2, name: "CITY A1 w/SE",
-            serial: "2304028", wn: "WN",
-            numberSites: 7, numberCompleted: 5, numberOffline: 2, numberTasks: 0),
-        Run(id: 3, name: "CITY A2",
-            serial: "2304024", wn: "WN",
-            numberSites: 9, numberCompleted: 8, numberOffline: 1, numberTasks: 1),
-        Run(id: 4, name: "City Deliver Sample Millbrae to Sunol",
-            serial: "", wn: "WN, BH",
-            numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0),
-    ]
-    
+    @EnvironmentObject var runsManager : RunsManager
     
     var body: some View {
         
         NavigationView {
             List {
-                ForEach(runs.indices, id: \.self) { index in
-                    let run = runs[index]
+                //ForEach(runs.indices, id: \.self) { index in
+                //    let run = runs[index]
+                ForEach(runsManager.runs.indices, id: \.self) { index in
+                    let run = runsManager.runs[index]
                     NavigationLink( destination: SitesPage()) {
                         RunsPageRow(run: run)
                             .background(index % 2 == 1 ? Color.clear : Color("Background"))
@@ -53,13 +38,18 @@ struct RunsPageRow : View {
         VStack {
             
             HStack{
-                Text("\(run.name)").font(.title3).bold()
+                Text("\(run.name)")
+                    .font(.title3)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
             }
             
             HStack {
                 Text(run.serial != "" ? run.serial + " | " : "")
+                    //.frame(maxWidth: .infinity, alignment: .leading)
                 Text(run.wn == "" ? "" : run.wn)
+                    // .frame(maxWidth: .infinity, alignment: .leading)
                 Spacer()
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -79,5 +69,6 @@ struct RunsPageRow : View {
 struct RunsPage_Previews: PreviewProvider {
     static var previews: some View {
         RunsPage()
+            .environmentObject(RunsManager())
     }
 }

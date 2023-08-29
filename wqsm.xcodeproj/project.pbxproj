@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		90137C0F2A994FC60051AED8 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90137C0E2A994FC60051AED8 /* Run.swift */; };
 		90137C112A9954920051AED8 /* RunsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90137C102A9954920051AED8 /* RunsPage.swift */; };
+		9037C1832A9CFB4500F8401D /* Run2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C1822A9CFB4500F8401D /* Run2.swift */; };
+		9037C1852A9CFB8900F8401D /* RunsManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C1842A9CFB8900F8401D /* RunsManager2.swift */; };
+		9037C1872A9CFDE900F8401D /* RunsPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C1862A9CFDE900F8401D /* RunsPage2.swift */; };
+		9037C18E2A9D3F8400F8401D /* Bottle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C18D2A9D3F8400F8401D /* Bottle.swift */; };
+		9037C1902A9D40BD00F8401D /* BottleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C18F2A9D40BD00F8401D /* BottleManager.swift */; };
+		9037C1922A9D425D00F8401D /* BottlesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C1912A9D425D00F8401D /* BottlesPage.swift */; };
+		907AB2C32A9D58BD00B489BF /* FieldTestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2C22A9D58BD00B489BF /* FieldTestManager.swift */; };
+		907AB2C52A9D5E5400B489BF /* AllDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2C42A9D5E5400B489BF /* AllDataManager.swift */; };
+		907AB2C72A9D610700B489BF /* TestsBottlesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2C62A9D610700B489BF /* TestsBottlesPage.swift */; };
+		907AB2C92A9D63A500B489BF /* Site2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2C82A9D63A500B489BF /* Site2.swift */; };
+		907AB2CB2A9D656900B489BF /* AllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2CA2A9D656900B489BF /* AllData.swift */; };
+		907AB2CD2A9D669C00B489BF /* AllDataPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2CC2A9D669C00B489BF /* AllDataPage.swift */; };
+		907AB2D12A9D6FAB00B489BF /* SitesPage2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2D02A9D6FAB00B489BF /* SitesPage2.swift */; };
 		90956CB02A96CFD100130390 /* wqsmApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CAF2A96CFD100130390 /* wqsmApp.swift */; };
 		90956CB22A96CFD100130390 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90956CB12A96CFD100130390 /* ContentView.swift */; };
 		90956CB42A96CFD200130390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90956CB32A96CFD200130390 /* Assets.xcassets */; };
@@ -24,6 +37,19 @@
 /* Begin PBXFileReference section */
 		90137C0E2A994FC60051AED8 /* Run.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		90137C102A9954920051AED8 /* RunsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsPage.swift; sourceTree = "<group>"; };
+		9037C1822A9CFB4500F8401D /* Run2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run2.swift; sourceTree = "<group>"; };
+		9037C1842A9CFB8900F8401D /* RunsManager2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsManager2.swift; sourceTree = "<group>"; };
+		9037C1862A9CFDE900F8401D /* RunsPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunsPage2.swift; sourceTree = "<group>"; };
+		9037C18D2A9D3F8400F8401D /* Bottle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bottle.swift; sourceTree = "<group>"; };
+		9037C18F2A9D40BD00F8401D /* BottleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleManager.swift; sourceTree = "<group>"; };
+		9037C1912A9D425D00F8401D /* BottlesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottlesPage.swift; sourceTree = "<group>"; };
+		907AB2C22A9D58BD00B489BF /* FieldTestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldTestManager.swift; sourceTree = "<group>"; };
+		907AB2C42A9D5E5400B489BF /* AllDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDataManager.swift; sourceTree = "<group>"; };
+		907AB2C62A9D610700B489BF /* TestsBottlesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsBottlesPage.swift; sourceTree = "<group>"; };
+		907AB2C82A9D63A500B489BF /* Site2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Site2.swift; sourceTree = "<group>"; };
+		907AB2CA2A9D656900B489BF /* AllData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllData.swift; sourceTree = "<group>"; };
+		907AB2CC2A9D669C00B489BF /* AllDataPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDataPage.swift; sourceTree = "<group>"; };
+		907AB2D02A9D6FAB00B489BF /* SitesPage2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SitesPage2.swift; sourceTree = "<group>"; };
 		90956CAC2A96CFD100130390 /* wqsm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wqsm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90956CAF2A96CFD100130390 /* wqsmApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wqsmApp.swift; sourceTree = "<group>"; };
 		90956CB12A96CFD100130390 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -103,6 +129,14 @@
 				90B0D9C52A99004B0079423F /* Site.swift */,
 				90137C0E2A994FC60051AED8 /* Run.swift */,
 				90A0A0D42A9BC2A100D92264 /* RunsManager.swift */,
+				9037C1822A9CFB4500F8401D /* Run2.swift */,
+				9037C1842A9CFB8900F8401D /* RunsManager2.swift */,
+				9037C18D2A9D3F8400F8401D /* Bottle.swift */,
+				9037C18F2A9D40BD00F8401D /* BottleManager.swift */,
+				907AB2C22A9D58BD00B489BF /* FieldTestManager.swift */,
+				907AB2C42A9D5E5400B489BF /* AllDataManager.swift */,
+				907AB2C82A9D63A500B489BF /* Site2.swift */,
+				907AB2CA2A9D656900B489BF /* AllData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -113,6 +147,11 @@
 				90C6A5942A97EE1400E43F69 /* FieldTestsPage.swift */,
 				90C6A5962A97F1B500E43F69 /* SitesPage.swift */,
 				90137C102A9954920051AED8 /* RunsPage.swift */,
+				9037C1862A9CFDE900F8401D /* RunsPage2.swift */,
+				9037C1912A9D425D00F8401D /* BottlesPage.swift */,
+				907AB2C62A9D610700B489BF /* TestsBottlesPage.swift */,
+				907AB2CC2A9D669C00B489BF /* AllDataPage.swift */,
+				907AB2D02A9D6FAB00B489BF /* SitesPage2.swift */,
 			);
 			path = "Page Views";
 			sourceTree = "<group>";
@@ -187,14 +226,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				90956CC52A96D78500130390 /* FieldTest.swift in Sources */,
+				907AB2CB2A9D656900B489BF /* AllData.swift in Sources */,
 				90A0A0D52A9BC2A100D92264 /* RunsManager.swift in Sources */,
+				9037C1902A9D40BD00F8401D /* BottleManager.swift in Sources */,
 				90137C112A9954920051AED8 /* RunsPage.swift in Sources */,
+				9037C1922A9D425D00F8401D /* BottlesPage.swift in Sources */,
 				90137C0F2A994FC60051AED8 /* Run.swift in Sources */,
+				9037C1832A9CFB4500F8401D /* Run2.swift in Sources */,
 				90C6A5972A97F1B500E43F69 /* SitesPage.swift in Sources */,
+				9037C1852A9CFB8900F8401D /* RunsManager2.swift in Sources */,
 				90C6A5952A97EE1400E43F69 /* FieldTestsPage.swift in Sources */,
 				90956CC02A96D41D00130390 /* AppTitle.swift in Sources */,
+				907AB2C32A9D58BD00B489BF /* FieldTestManager.swift in Sources */,
+				9037C18E2A9D3F8400F8401D /* Bottle.swift in Sources */,
+				907AB2C52A9D5E5400B489BF /* AllDataManager.swift in Sources */,
+				907AB2D12A9D6FAB00B489BF /* SitesPage2.swift in Sources */,
+				907AB2C92A9D63A500B489BF /* Site2.swift in Sources */,
 				90B0D9C62A99004B0079423F /* Site.swift in Sources */,
+				9037C1872A9CFDE900F8401D /* RunsPage2.swift in Sources */,
 				90956CB22A96CFD100130390 /* ContentView.swift in Sources */,
+				907AB2CD2A9D669C00B489BF /* AllDataPage.swift in Sources */,
+				907AB2C72A9D610700B489BF /* TestsBottlesPage.swift in Sources */,
 				90956CB02A96CFD100130390 /* wqsmApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

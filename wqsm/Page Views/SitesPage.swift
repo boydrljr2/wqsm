@@ -21,7 +21,8 @@ struct SitesPage: View {
             List {
                 ForEach(sites.indices, id: \.self) { index in
                     let site = sites[index]
-                    NavigationLink(destination: FieldTestsPage()) {
+                    //NavigationLink(destination: FieldTestsPage()) {
+                    NavigationLink(destination: TestsBottlesPage()) {
                         SitesPageRow(site: site)
                             .background(index % 2 == 1 ? Color.clear : Color("Background"))
                     }
@@ -57,5 +58,7 @@ struct SitesPageRow: View {
 struct SitesPage_Previews: PreviewProvider {
     static var previews: some View {
         SitesPage()
+            .environmentObject(FieldTestManager())
+            .environmentObject(BottleManager())
     }
 }

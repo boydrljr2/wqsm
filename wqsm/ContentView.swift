@@ -32,10 +32,15 @@ struct ContentView: View {
                                 Image(systemName: "rosette")
                                 Text("Tests")
                             }
-                        Text("Info")
+                        BottlesPage()
+                            .tabItem {
+                                Image(systemName: "hourglass")
+                                Text("Bottles")
+                            }
+                        AllDataPage()
                             .tabItem {
                                 Image(systemName: "info.circle")
-                                Text("Info")
+                                Text("All")
                             }
                     }
                 }
@@ -47,5 +52,10 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environmentObject(BottleManager())
+            .environmentObject(RunsManager())
+            .environmentObject(RunsManager2())
+            .environmentObject(FieldTestManager())
+            .environmentObject(AllDataManager())
     }
 }
