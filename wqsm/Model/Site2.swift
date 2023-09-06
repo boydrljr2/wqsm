@@ -10,6 +10,7 @@ import Foundation
 struct Site2: Identifiable {
     var id: Int
     var name: String
+    var comment : String
     
     var fieldTests : [FieldTest]
     

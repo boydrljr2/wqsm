@@ -14,32 +14,17 @@ struct ContentView: View {
             VStack {
                 AppTitle()
                     .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
-
+                
                 TabView {
+                    AllDataPage()
+                        .tabItem {
+                            Image(systemName: "rosette")
+                            Text("AllData1")
+                        }
                     RunsPage()
                         .tabItem {
                             Image(systemName: "hare")
                             Text("Runs")
-                        }
-                    SitesPage()
-                        .tabItem {
-                            Image(systemName: "globe")
-                            Text("Sites")
-                        }
-                    FieldTestsPage()
-                        .tabItem {
-                            Image(systemName: "rosette")
-                            Text("Tests")
-                        }
-                    BottlesPage()
-                        .tabItem {
-                            Image(systemName: "hourglass")
-                            Text("Bottles")
-                        }
-                    AllDataPage()
-                        .tabItem {
-                            Image(systemName: "info.circle")
-                            Text("All")
                         }
                 }
             }

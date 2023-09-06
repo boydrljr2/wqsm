@@ -26,6 +26,7 @@ struct RunsPage: View {
                 }
             }
             .navigationTitle("Today's Runs & Tasks")
+            //.navigationBarTitleDisplayMode(.inline)
         }
     }
 }

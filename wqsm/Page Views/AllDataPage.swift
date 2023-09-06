@@ -14,28 +14,28 @@ struct AllDataPage: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(allDataManager.allDatas) { allData in
-                    //Text(allData.name)
-                    Section(header: Text(allData.name)
+                ForEach(allDataManager.allDatas.indices, id: \.self) {runIndex in
+                    Section(header: Text(allDataManager.allDatas[runIndex].name)
                         .font(.title3))
                     {
                         HStack {
-                            Text(allData.serial != "" ? "Serial:\(allData.serial)" : "")
+                            Text(allDataManager.allDatas[runIndex].serial != "" ? "Serial:\(allDataManager.allDatas[runIndex].serial)" : "")
                             //Text(allData.wn != "" ? " \(allData.wn) " : "" )
                             Spacer()
-                            Text(allData.numberSites != 0 ? "\(allData.numberSites) Sites " : "")
-                            Text(allData.numberCompleted != 0 ? "\(allData.numberCompleted) Completed " : "")
-                            Text(allData.numberOffline != 0 ? "\(allData.numberOffline) Offline " : "")
-                            Text(allData.numberTasks != 0 ? "\(allData.numberTasks) Tasks" : "")
+                            Text(allDataManager.allDatas[runIndex].numberSites != 0 ? "\(allDataManager.allDatas[runIndex].numberSites) Sites " : "")
+                            Text(allDataManager.allDatas[runIndex].numberCompleted != 0 ? "\(allDataManager.allDatas[runIndex].numberCompleted) Completed " : "")
+                            Text(allDataManager.allDatas[runIndex].numberOffline != 0 ? "\(allDataManager.allDatas[runIndex].numberOffline) Offline " : "")
+                            Text(allDataManager.allDatas[runIndex].numberTasks != 0 ? "\(allDataManager.allDatas[runIndex].numberTasks) Tasks" : "")
                             //Spacer()
                         }.font(.caption)
-                        ForEach(allData.sites.indices, id: \.self) { index in
-                            let site = allData.sites[index]
+                        ForEach(allDataManager.allDatas[runIndex].sites.indices, id: \.self) { siteIndex in
+                            let site = allDataManager.allDatas[runIndex].sites[siteIndex]
                             AllDataSitesPageRow(site : site)
                         }
                     }
                 }
-
+                .navigationTitle("Today's Runs > Sites > Tasks")
+                .navigationBarTitleDisplayMode(.automatic)
             }
         }
     }
@@ -78,10 +78,10 @@ struct AllDataSitesPageRow: View {
             .font(.body)
             .padding(.vertical, 10)
             
-            ForEach(site.fieldTests.indices, id: \.self) { index in
-                let fieldTest = site.fieldTests[index]
+            ForEach(site.fieldTests.indices, id: \.self) { fieldTestIndex in
+                let fieldTest = site.fieldTests[fieldTestIndex]
                 AllDataFieldTestsPageRow(fieldTest : fieldTest)
-                    .background(index % 2 == 1 ? Color.clear : Color("Background"))
+                    .background(fieldTestIndex % 2 == 1 ? Color.clear : Color("Background"))
                     .padding(.vertical, 2)
             }
             
@@ -105,10 +105,10 @@ struct AllDataSitesPageRow: View {
             }
     
             
-            ForEach(site.bottles.indices, id: \.self) { index in
-                let bottle = site.bottles[index]
+            ForEach(site.bottles.indices, id: \.self) { bottleIndex in
+                let bottle = site.bottles[bottleIndex]
                 AllDataBottlesItemRow( bottle : bottle )
-                    .background(index % 2 == 1 ? Color.clear : Color("Background"))
+                    .background(bottleIndex % 2 == 1 ? Color.clear : Color("Background"))
                     .padding(.vertical, 2)
             }
         }
@@ -133,8 +133,8 @@ struct AllDataFieldTestsPageRow: View {
             Text(fieldTest.time)
                 .frame(width: 80, alignment: .trailing)
         }
-        //.font(.body)
-        //.padding(.vertical, 8)
+        .font(.body)
+        .padding(.vertical, 8)
     }
 }
 
@@ -158,42 +158,9 @@ struct AllDataBottlesItemRow : View {
             Text(bottle.collectedTimeStamp)
                 .frame(alignment: .trailing).font(.body)
         }
+        .padding(.vertical, 10)
     }
 }
-
-/*
- 
- struct BottlesItemRow : View {
-     
-     var bottle: Bottle
-     //@Binding var bottle: Bottle //using @Binding instead of just a var
-     
-     
-     var body: some View {
-         HStack {
-             Text("\(bottle.id)")
-             Text(bottle.name)
-                 .frame(width: 220)
-             //Text(" ")
-             Image(systemName: bottle.collectedTimeStamp == "" ?
-                     "square.fill.and.line.vertical.and.square" :
-                     "square.and.line.vertical.and.square.fill")
-                 .resizable()
-                 .frame(maxWidth: 25, maxHeight: 20, alignment: .trailing)
-             //Add Toggle here
-             //Toggle(isOn: $bottle.collected) {
-             //    Text("Collected")
-             // }
-             // .labelsHidden()
-             
-             Spacer()
-             Text(bottle.collectedTimeStamp)
-                 .frame(alignment: .trailing)
-         }
-     }
- }
- 
- */
 
 struct AllDataPage_Previews: PreviewProvider {
     static var previews: some View {
