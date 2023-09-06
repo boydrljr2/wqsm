@@ -29,8 +29,8 @@ struct AllDataPage: View {
                             //Spacer()
                         }.font(.caption)
                         ForEach(allDataManager.allDatas[runIndex].sites.indices, id: \.self) { siteIndex in
-                            let site = allDataManager.allDatas[runIndex].sites[siteIndex]
-                            AllDataSitesPageRow(site : site)
+                            //let site = allDataManager.allDatas[runIndex].sites[siteIndex]
+                            AllDataSitesPageRow(site : $allDataManager.allDatas[runIndex].sites[siteIndex])
                         }
                     }
                 }
@@ -43,7 +43,7 @@ struct AllDataPage: View {
 
 struct AllDataSitesPageRow: View {
     
-    var site: Site2
+    @Binding var site: Site2
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -60,6 +60,17 @@ struct AllDataSitesPageRow: View {
             }
             .font(.body)
             .padding(.vertical, 10)
+            
+            
+            HStack {
+                TextEditor(text:
+                    $site.comment
+                )
+                .frame(height: 120)
+                .background(Color.white)
+                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
+            }
+            
             
             HStack {
                 Text("Field Tests").font(.body).bold()
