@@ -10,39 +10,37 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        VStack {
-            //AppTitle()
-            //Spacer()
-            NavigationView {
-                VStack {
-                    AppTitle()
-                    TabView {
-                        RunsPage()
-                            .tabItem {
-                                Image(systemName: "hare")
-                                Text("Runs")
-                            }
-                        SitesPage()
-                            .tabItem {
-                                Image(systemName: "globe")
-                                Text("Sites")
-                            }
-                        FieldTestsPage()
-                            .tabItem {
-                                Image(systemName: "rosette")
-                                Text("Tests")
-                            }
-                        BottlesPage()
-                            .tabItem {
-                                Image(systemName: "hourglass")
-                                Text("Bottles")
-                            }
-                        AllDataPage()
-                            .tabItem {
-                                Image(systemName: "info.circle")
-                                Text("All")
-                            }
-                    }
+        NavigationView {
+            VStack {
+                AppTitle()
+                    .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
+
+                TabView {
+                    RunsPage()
+                        .tabItem {
+                            Image(systemName: "hare")
+                            Text("Runs")
+                        }
+                    SitesPage()
+                        .tabItem {
+                            Image(systemName: "globe")
+                            Text("Sites")
+                        }
+                    FieldTestsPage()
+                        .tabItem {
+                            Image(systemName: "rosette")
+                            Text("Tests")
+                        }
+                    BottlesPage()
+                        .tabItem {
+                            Image(systemName: "hourglass")
+                            Text("Bottles")
+                        }
+                    AllDataPage()
+                        .tabItem {
+                            Image(systemName: "info.circle")
+                            Text("All")
+                        }
                 }
             }
         }
