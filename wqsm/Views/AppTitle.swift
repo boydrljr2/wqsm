@@ -8,6 +8,14 @@
 import SwiftUI
 
 struct AppTitle: View {
+    
+    static func dateString(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
+
     var body: some View {
         HStack {
             Image(systemName: "line.horizontal.3")
@@ -23,9 +31,15 @@ struct AppTitle: View {
                 .resizable()
                 .frame(maxWidth: 50, maxHeight: 25)
             Spacer()
+            /*
             Text("Aug 29, 2023")
                 .font(.body)
                 .padding(.trailing)
+            */
+            Text(Self.dateString(from: Date()))
+                .font(.body)
+                .padding(.trailing)
+
 
         }
         //.frame(maxWidth: .infinity, maxHeight: 50)
