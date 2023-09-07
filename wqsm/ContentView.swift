@@ -24,7 +24,7 @@ struct ContentView: View {
                     RunsPage()
                         .tabItem {
                             Image(systemName: "hare")
-                            Text("Runs")
+                            Text("AllData2")
                         }
                 }
             }

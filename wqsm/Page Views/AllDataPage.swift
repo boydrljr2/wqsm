@@ -16,7 +16,9 @@ struct AllDataPage: View {
             List {
                 ForEach(allDataManager.allDatas.indices, id: \.self) {runIndex in
                     Section(header: Text(allDataManager.allDatas[runIndex].name)
-                        .font(.title3))
+                        .font(.title2).bold()
+                        .foregroundColor(Color("Primary"))
+                    )
                     {
                         HStack {
                             Text(allDataManager.allDatas[runIndex].serial != "" ? "Serial:\(allDataManager.allDatas[runIndex].serial)" : "")
@@ -27,11 +29,16 @@ struct AllDataPage: View {
                             Text(allDataManager.allDatas[runIndex].numberOffline != 0 ? "\(allDataManager.allDatas[runIndex].numberOffline) Offline " : "")
                             Text(allDataManager.allDatas[runIndex].numberTasks != 0 ? "\(allDataManager.allDatas[runIndex].numberTasks) Tasks" : "")
                             //Spacer()
-                        }.font(.caption)
+                        }
+                        .font(.caption)
+                        .foregroundColor(Color("Primary"))
+                        .padding(.bottom, 20)
+                        
                         ForEach(allDataManager.allDatas[runIndex].sites.indices, id: \.self) { siteIndex in
                             //let site = allDataManager.allDatas[runIndex].sites[siteIndex]
                             AllDataSitesPageRow(site : $allDataManager.allDatas[runIndex].sites[siteIndex])
                         }
+                        Divider()
                     }
                 }
                 .navigationTitle("Today's Runs > Sites > Tasks")
@@ -58,9 +65,58 @@ struct AllDataSitesPageRow: View {
                 Image(systemName: "mappin")
                 Image(systemName: "gear")
             }
-            .font(.body)
+            .font(.title3)
             .padding(.vertical, 10)
+            .foregroundColor(Color.orange)
             
+            HStack {
+                Text("Field Test")
+                    .frame(width: 160, alignment: .leading)
+                Spacer()
+                Text("Value")
+                    .frame(width: 50, alignment: .trailing)
+                Spacer()
+                Text("Time")
+                    .frame(width: 80, alignment: .trailing)
+            }
+            .font(.body)
+            .foregroundColor(Color(red: 0.2, green : 0.4, blue: 0.2))
+            .padding(.top, 25)
+                        
+            ForEach(site.fieldTests.indices, id: \.self) {fieldTestIndex in
+                AllDataFieldTestsPageRow(fieldTest : $site.fieldTests[fieldTestIndex])
+                    .background(fieldTestIndex % 2 == 0 ? Color.clear : Color("Background"))
+                    .padding(.top, 4)
+            }
+            
+            Divider()
+            
+            HStack {
+                Text("Bottle to Collect")
+                    .frame(width: 200, alignment: .leading)
+                Text("Set")
+                Spacer()
+                Text("Time")
+                    .frame(alignment: .trailing)
+            }
+            .font(.body)
+            .foregroundColor(Color(red: 0.2, green : 0.4, blue: 0.2))
+            .padding(.top, 25)
+    
+            
+            ForEach(site.bottles.indices, id: \.self) { bottleIndex in
+                let bottle = site.bottles[bottleIndex]
+                AllDataBottlesItemRow( bottle : bottle )
+                    .background(bottleIndex % 2 == 0 ? Color.clear : Color("Background"))
+                    .padding(.top, 4)
+                /*
+                AllDataBottlesPageRow(bottle : $site.bottle[bottleIndex])
+                    .background(bottleIndex % 2 == 0 ? Color.clear : Color("Background"))
+                    .padding()
+                 */
+            }
+            
+            Divider().padding()
             
             HStack {
                 TextEditor(text:
@@ -69,107 +125,52 @@ struct AllDataSitesPageRow: View {
                 .frame(height: 120)
                 .background(Color.white)
                 .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
-            }
+            }.padding(.bottom, 20)
             
-            
-            HStack {
-                Text("Field Tests").font(.body).bold()
-            }.padding(.vertical, 10)
-            
-            HStack {
-                Text("Id")
-                    .frame(width: 30, alignment: .leading)
-                Text("Test")
-                    .frame(width: 160, alignment: .leading)
-                Text("Value")
-                    .frame(alignment: .trailing)
-                Spacer()
-                Text("Time")
-            }
-            .font(.body)
-            .padding(.vertical, 10)
-            
-            ForEach(site.fieldTests.indices, id: \.self) { fieldTestIndex in
-                let fieldTest = site.fieldTests[fieldTestIndex]
-                AllDataFieldTestsPageRow(fieldTest : fieldTest)
-                    .background(fieldTestIndex % 2 == 1 ? Color.clear : Color("Background"))
-                    .padding(.vertical, 2)
-            }
-            
-            //Bottle table header
-            HStack {
-                Text("Bottles to Collect").font(.body).bold()
-            }.padding(.vertical, 10)
-            
-            HStack {
-                Text("Id")
-                    .frame(width: 30, alignment : .leading)
-                //Spacer()
-                Text("Bottle")
-                    .frame(width: 220, alignment: .leading)
-                //Spacer()
-                //Text("Collected")
-                //    .frame(alignment: .leading)
-                Spacer()
-                Text("Time")
-                    .frame(alignment: .trailing)
-            }
-    
-            
-            ForEach(site.bottles.indices, id: \.self) { bottleIndex in
-                let bottle = site.bottles[bottleIndex]
-                AllDataBottlesItemRow( bottle : bottle )
-                    .background(bottleIndex % 2 == 1 ? Color.clear : Color("Background"))
-                    .padding(.vertical, 2)
-            }
         }
     }
 }
 
 struct AllDataFieldTestsPageRow: View {
     
-    var fieldTest: FieldTest
+    @Binding var fieldTest: FieldTest
     
     var body: some View {
         HStack {
-            Text("\(fieldTest.id)")
-                .frame(width: 30, alignment: .leading)
-                // Adjust the width as needed
             Text(fieldTest.name)
                 .frame(width: 160, alignment: .leading)
-            //Spacer()
-            Text(fieldTest.value)
+            Spacer()
+            TextField("Value", text: $fieldTest.value)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 50, alignment: .trailing)
+                .multilineTextAlignment(.trailing)
             Spacer()
             Text(fieldTest.time)
                 .frame(width: 80, alignment: .trailing)
         }
         .font(.body)
-        .padding(.vertical, 8)
+        //.padding(.vertical, 8)
     }
 }
 
 struct AllDataBottlesItemRow : View {
     
     var bottle: Bottle
+    //@Binding var bottle : Bottle
     
     var body: some View {
         HStack {
-            Text("\(bottle.id)")
-                .frame(width: 20, alignment: .leading)
             Text(bottle.name)
                 .frame(width: 200, alignment: .leading)//.font(.caption)
-            //Text(" ")
             Image(systemName: bottle.collectedTimeStamp == "" ?
                     "square.fill.and.line.vertical.and.square" :
                     "square.and.line.vertical.and.square.fill")
                 .resizable()
-                .frame(maxWidth: 25, maxHeight: 20, alignment: .trailing)
+                .frame(maxWidth: 25, alignment: .trailing)
             Spacer()
             Text(bottle.collectedTimeStamp)
                 .frame(alignment: .trailing).font(.body)
         }
-        .padding(.vertical, 10)
     }
 }
 
