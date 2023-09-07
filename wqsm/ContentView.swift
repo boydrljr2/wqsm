@@ -19,12 +19,12 @@ struct ContentView: View {
                     AllDataPage()
                         .tabItem {
                             Image(systemName: "rosette")
-                            Text("AllData1")
+                            Text("Scroll View")
                         }
                     RunsPage()
                         .tabItem {
                             Image(systemName: "hare")
-                            Text("AllData2")
+                            Text("Swipe View")
                         }
                 }
             }

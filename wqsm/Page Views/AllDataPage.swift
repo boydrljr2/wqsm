@@ -39,8 +39,8 @@ struct AllDataPage: View {
                         Divider()
                     }
                 }
-                .navigationTitle("Today's Runs > Sites > Tasks")
-                .navigationBarTitleDisplayMode(.automatic)
+                //.navigationTitle("Today's Runs > Sites > Tasks")
+                //.navigationBarTitleDisplayMode(.automatic)
             }
         }
     }
@@ -84,7 +84,7 @@ struct AllDataSitesPageRow: View {
             ForEach(site.fieldTests.indices, id: \.self) {fieldTestIndex in
                 AllDataFieldTestsPageRow(fieldTest : $site.fieldTests[fieldTestIndex])
                     .background(fieldTestIndex % 2 == 0 ? Color.clear : Color("Background"))
-                    .padding()
+                    //.padding()
             }
             
             Divider()
@@ -98,6 +98,7 @@ struct AllDataSitesPageRow: View {
                     .frame(alignment: .trailing)
             }
             .font(.body)
+            //dark green for Field Test and Bottle headers
             .foregroundColor(Color(red: 0.2, green : 0.4, blue: 0.2))
             .padding(.top, 25)
     
@@ -105,7 +106,7 @@ struct AllDataSitesPageRow: View {
             ForEach(site.bottles.indices, id: \.self) { bottleIndex in
                 AllDataBottlesItemRow(bottle : $site.bottles[bottleIndex])
                     .background(bottleIndex % 2 == 0 ? Color.clear : Color("Background"))
-                    .padding()
+                    //.padding(.top, 25)
                 
             }
             
@@ -134,6 +135,7 @@ struct AllDataFieldTestsPageRow: View {
                 .frame(width: 160, alignment: .leading)
             Spacer()
             TextField("Value", text: $fieldTest.value)
+                .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 50, alignment: .trailing)
                 .multilineTextAlignment(.trailing)

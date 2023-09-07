@@ -14,7 +14,7 @@ class AllDataManager: ObservableObject {
             serial: "2303889", wn: "WN",
             numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
-                Site2(id: 0, name: "Alameda East", comment: "Enter site comment...",
+                Site2(id: 0, name: "Alameda East", comment: "A site comment...",
                       fieldTests : [
                         FieldTest(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
                         FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
@@ -24,7 +24,7 @@ class AllDataManager: ObservableObject {
                         Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]
                      ),
-                Site2(id: 1, name: "IRV_PORTAL", comment: "Enter site comment...",
+                Site2(id: 1, name: "IRV_PORTAL", comment: "Another site comment...",
                       fieldTests : [
                         FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
@@ -33,7 +33,7 @@ class AllDataManager: ObservableObject {
                         Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
                         Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                     ),
-                Site2(id: 2, name: "SVWTP_EFF", comment: "Enter site comment...",
+                Site2(id: 2, name: "SVWTP_EFF", comment: "comments...",
                       fieldTests : [
                         FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
@@ -48,7 +48,7 @@ class AllDataManager: ObservableObject {
                  serial: "", wn: "WN",
                  numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
-                Site2(id: 0, name: "Alameda East", comment: "Comment...",
+                Site2(id: 0, name: "Alameda East", comment: "...",
                       fieldTests : [
                         FieldTest(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
                         FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
@@ -58,7 +58,7 @@ class AllDataManager: ObservableObject {
                         Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]
                      ),
-                Site2(id: 1, name: "IRV_PORTAL", comment: "Comment...",
+                Site2(id: 1, name: "IRV_PORTAL", comment: "Comments here...",
                       fieldTests : [
                         FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
@@ -67,7 +67,7 @@ class AllDataManager: ObservableObject {
                         Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
                         Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                     ),
-                Site2(id: 2, name: "SVWTP_EFF", comment: "Comment...",                      fieldTests : [
+                Site2(id: 2, name: "SVWTP_EFF", comment: "Comments go here...",                      fieldTests : [
                         FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
                       ],
