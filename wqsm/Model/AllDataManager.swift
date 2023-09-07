@@ -20,8 +20,8 @@ class AllDataManager: ObservableObject {
                         FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
                       ],
                       bottles : [
-                        Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-                        Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+                        Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+                        Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]
                      ),
                 Site2(id: 1, name: "IRV_PORTAL", comment: "Enter site comment...",
@@ -30,8 +30,8 @@ class AllDataManager: ObservableObject {
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
                       ],
                       bottles : [
-                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                     ),
                 Site2(id: 2, name: "SVWTP_EFF", comment: "Enter site comment...",
                       fieldTests : [
@@ -39,8 +39,8 @@ class AllDataManager: ObservableObject {
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
                       ],
                       bottles : [
-                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                      ),
                 ]
            ),
@@ -54,8 +54,8 @@ class AllDataManager: ObservableObject {
                         FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
                       ],
                       bottles : [
-                        Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-                        Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+                        Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+                        Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]
                      ),
                 Site2(id: 1, name: "IRV_PORTAL", comment: "Comment...",
@@ -64,16 +64,16 @@ class AllDataManager: ObservableObject {
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
                       ],
                       bottles : [
-                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                     ),
                 Site2(id: 2, name: "SVWTP_EFF", comment: "Comment...",                      fieldTests : [
                         FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
                         FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
                       ],
                       bottles : [
-                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+                        Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+                        Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                      ),
                 ]
            ),

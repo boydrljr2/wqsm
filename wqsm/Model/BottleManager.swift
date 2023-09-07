@@ -13,7 +13,7 @@ class BottleManager: ObservableObject {
     @Published var bottles : [Bottle] = [
         //Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
         //Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
-        Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collectedTimeStamp: "3:35 pm" ),
-        Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collectedTimeStamp: "")
+        Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
+        Bottle( id: 1, name: "250ml _GRAB_P_4~C(1) ", collected: true, collectedTimeStamp: "")
     ]
 }

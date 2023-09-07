@@ -22,20 +22,18 @@ struct AllDataPage: View {
                     {
                         HStack {
                             Text(allDataManager.allDatas[runIndex].serial != "" ? "Serial:\(allDataManager.allDatas[runIndex].serial)" : "")
-                            //Text(allData.wn != "" ? " \(allData.wn) " : "" )
-                            Spacer()
+                            //Text(allDataManager.allDatas[runIndex].wn != "" ?
+                            //     " \(allDataManager.allDatas[runIndex].wn) " : "" )
                             Text(allDataManager.allDatas[runIndex].numberSites != 0 ? "\(allDataManager.allDatas[runIndex].numberSites) Sites " : "")
                             Text(allDataManager.allDatas[runIndex].numberCompleted != 0 ? "\(allDataManager.allDatas[runIndex].numberCompleted) Completed " : "")
                             Text(allDataManager.allDatas[runIndex].numberOffline != 0 ? "\(allDataManager.allDatas[runIndex].numberOffline) Offline " : "")
                             Text(allDataManager.allDatas[runIndex].numberTasks != 0 ? "\(allDataManager.allDatas[runIndex].numberTasks) Tasks" : "")
-                            //Spacer()
                         }
                         .font(.caption)
                         .foregroundColor(Color("Primary"))
                         .padding(.bottom, 20)
                         
                         ForEach(allDataManager.allDatas[runIndex].sites.indices, id: \.self) { siteIndex in
-                            //let site = allDataManager.allDatas[runIndex].sites[siteIndex]
                             AllDataSitesPageRow(site : $allDataManager.allDatas[runIndex].sites[siteIndex])
                         }
                         Divider()
@@ -86,7 +84,7 @@ struct AllDataSitesPageRow: View {
             ForEach(site.fieldTests.indices, id: \.self) {fieldTestIndex in
                 AllDataFieldTestsPageRow(fieldTest : $site.fieldTests[fieldTestIndex])
                     .background(fieldTestIndex % 2 == 0 ? Color.clear : Color("Background"))
-                    .padding(.top, 4)
+                    .padding()
             }
             
             Divider()
@@ -105,15 +103,10 @@ struct AllDataSitesPageRow: View {
     
             
             ForEach(site.bottles.indices, id: \.self) { bottleIndex in
-                let bottle = site.bottles[bottleIndex]
-                AllDataBottlesItemRow( bottle : bottle )
-                    .background(bottleIndex % 2 == 0 ? Color.clear : Color("Background"))
-                    .padding(.top, 4)
-                /*
-                AllDataBottlesPageRow(bottle : $site.bottle[bottleIndex])
+                AllDataBottlesItemRow(bottle : $site.bottles[bottleIndex])
                     .background(bottleIndex % 2 == 0 ? Color.clear : Color("Background"))
                     .padding()
-                 */
+                
             }
             
             Divider().padding()
@@ -149,24 +142,33 @@ struct AllDataFieldTestsPageRow: View {
                 .frame(width: 80, alignment: .trailing)
         }
         .font(.body)
-        //.padding(.vertical, 8)
     }
 }
 
 struct AllDataBottlesItemRow : View {
     
-    var bottle: Bottle
-    //@Binding var bottle : Bottle
+    //var bottle: Bottle
+    @Binding var bottle : Bottle
     
     var body: some View {
         HStack {
             Text(bottle.name)
                 .frame(width: 200, alignment: .leading)//.font(.caption)
-            Image(systemName: bottle.collectedTimeStamp == "" ?
+            
+            /*
+            Image(systemName: bottle.collected == true ?
                     "square.fill.and.line.vertical.and.square" :
                     "square.and.line.vertical.and.square.fill")
                 .resizable()
                 .frame(maxWidth: 25, alignment: .trailing)
+            */
+            
+            Toggle(isOn : $bottle.collected) {
+                Text("")
+                    .frame(alignment: .leading)
+            }
+            
+            
             Spacer()
             Text(bottle.collectedTimeStamp)
                 .frame(alignment: .trailing).font(.body)
