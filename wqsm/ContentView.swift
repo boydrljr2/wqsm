@@ -11,24 +11,27 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                AppTitle()
-                    .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
-                
-                TabView {
-                    ScrollDataPage()
-                        .tabItem {
-                            Image(systemName: "rosette")
-                            Text("Scroll View")
-                        }
-                    RunsPage()
-                        .tabItem {
-                            Image(systemName: "hare")
-                            Text("Swipe View")
-                        }
+            GeometryReader { geometry in
+                VStack {
+                    AppTitle()
+                        .padding(.top, geometry.safeAreaInsets.top)
+                    
+                    TabView {
+                        ScrollDataPage()
+                            .frame(maxWidth: .infinity)
+                            .tabItem {
+                                Image(systemName: "chevron.up.chevron.down")
+                                Text("Scroll View")
+                            }
+                        SwipeDataPage()
+                            .tabItem {
+                                Image(systemName: "chevron.right.2")
+                                Text("Swipe View")
+                            }
+                    }
                 }
             }
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
 

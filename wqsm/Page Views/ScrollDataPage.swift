@@ -34,19 +34,20 @@ struct ScrollDataPage: View {
                         .padding(.bottom, 20)
                         
                         ForEach(allDataManager.allDatas[runIndex].sites.indices, id: \.self) { siteIndex in
-                            AllDataSitesPageRow(site : $allDataManager.allDatas[runIndex].sites[siteIndex])
+                            ScrollDataSitesPageRow(site : $allDataManager.allDatas[runIndex].sites[siteIndex])
                         }
                         Divider()
                     }
                 }
-                //.navigationTitle("Today's Runs > Sites > Tasks")
-                //.navigationBarTitleDisplayMode(.automatic)
             }
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        //.navigationTitle("Today's Runs > Sites > Tasks")
+        //.navigationBarTitleDisplayMode(.automatic)
     }
 }
 
-struct AllDataSitesPageRow: View {
+struct ScrollDataSitesPageRow: View {
     
     @Binding var site: Site2
     
@@ -82,7 +83,7 @@ struct AllDataSitesPageRow: View {
             .padding(.top, 25)
                         
             ForEach(site.fieldTests.indices, id: \.self) {fieldTestIndex in
-                AllDataFieldTestsPageRow(fieldTest : $site.fieldTests[fieldTestIndex])
+                ScrollDataFieldTestsPageRow(fieldTest : $site.fieldTests[fieldTestIndex])
                     .background(fieldTestIndex % 2 == 0 ? Color.clear : Color("Background"))
                     //.padding()
             }
@@ -104,7 +105,7 @@ struct AllDataSitesPageRow: View {
     
             
             ForEach(site.bottles.indices, id: \.self) { bottleIndex in
-                AllDataBottlesItemRow(bottle : $site.bottles[bottleIndex])
+                ScrollDataBottlesItemRow(bottle : $site.bottles[bottleIndex])
                     .background(bottleIndex % 2 == 0 ? Color.clear : Color("Background"))
                     //.padding(.top, 25)
                 
@@ -125,7 +126,7 @@ struct AllDataSitesPageRow: View {
     }
 }
 
-struct AllDataFieldTestsPageRow: View {
+struct ScrollDataFieldTestsPageRow: View {
     
     @Binding var fieldTest: FieldTest
     
@@ -147,7 +148,7 @@ struct AllDataFieldTestsPageRow: View {
     }
 }
 
-struct AllDataBottlesItemRow : View {
+struct ScrollDataBottlesItemRow : View {
     
     //var bottle: Bottle
     @Binding var bottle : Bottle
@@ -178,7 +179,7 @@ struct AllDataBottlesItemRow : View {
     }
 }
 
-struct AllDataPage_Previews: PreviewProvider {
+struct ScrollDataPage_Previews: PreviewProvider {
     static var previews: some View {
         ScrollDataPage()
             .environmentObject(AllDataManager())
