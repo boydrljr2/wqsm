@@ -18,32 +18,23 @@ struct AppTitle: View {
 
     var body: some View {
         HStack {
-            Image(systemName: "line.horizontal.3")
-                .resizable()
-                .frame(maxWidth: 25, maxHeight:25)
             Image("logo")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(maxHeight: 40)
             Text("WQSM").font(.title).bold()
             Spacer()
-            Image(systemName: "arrow.clockwise.icloud")
-                .resizable()
-                .frame(maxWidth: 50, maxHeight: 25)
-            Spacer()
-            /*
-            Text("Aug 29, 2023")
-                .font(.body)
-                .padding(.trailing)
-            */
             Text(Self.dateString(from: Date()))
                 .font(.body)
                 .padding(.trailing)
-
-
+            Spacer()
+            Image(systemName: "arrow.triangle.2.circlepath")
+                .resizable()
+                .frame(maxWidth: 25, maxHeight: 25)
         }
-        //.frame(maxWidth: .infinity, maxHeight: 50)
+        
         .padding(.leading)
+        .padding(.trailing)
     }
 }
 

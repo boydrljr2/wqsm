@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AllDataPage: View {
+struct ScrollDataPage: View {
     
     @EnvironmentObject var allDataManager : AllDataManager
     
@@ -180,7 +180,7 @@ struct AllDataBottlesItemRow : View {
 
 struct AllDataPage_Previews: PreviewProvider {
     static var previews: some View {
-        AllDataPage()
+        ScrollDataPage()
             .environmentObject(AllDataManager())
     }
 }

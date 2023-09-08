@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AllData: Identifiable {
+struct AllDataModel: Identifiable {
     var id: Int
     var name: String
     var serial: String

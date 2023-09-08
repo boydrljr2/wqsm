@@ -16,7 +16,7 @@ struct ContentView: View {
                     .padding(.top, UIApplication.shared.windows.first?.safeAreaInsets.top)
                 
                 TabView {
-                    AllDataPage()
+                    ScrollDataPage()
                         .tabItem {
                             Image(systemName: "rosette")
                             Text("Scroll View")

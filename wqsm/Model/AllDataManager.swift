@@ -9,8 +9,8 @@ import Foundation
 
 class AllDataManager: ObservableObject {
     
-    @Published var allDatas : [AllData] = [
-        AllData (id: 0, name: "EB1 (MON) SUNOL",
+    @Published var allDatas : [AllDataModel] = [
+        AllDataModel (id: 0, name: "EB1 (MON) SUNOL",
             serial: "2303889", wn: "WN",
             numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
@@ -44,7 +44,7 @@ class AllDataManager: ObservableObject {
                       ]                      ),
                 ]
            ),
-        AllData (id: 1, name: "Sunol NRD Pickup",
+        AllDataModel (id: 1, name: "Sunol NRD Pickup",
                  serial: "", wn: "WN",
                  numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
