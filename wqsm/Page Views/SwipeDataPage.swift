@@ -34,8 +34,9 @@ struct SwipeDataPage: View {
                     }
                 }
                 ForEach(allDataManager.allDatas.indices, id: \.self) { runIndex in
+
                     VStack {
-                        
+                       
                         HStack {
                             Text(allDataManager.allDatas[runIndex].name != "" ?
                                  "\(allDataManager.allDatas[runIndex].name)" : "")
@@ -50,6 +51,13 @@ struct SwipeDataPage: View {
                                 "\(allDataManager.allDatas[runIndex].wn)" :
                                     "\(allDataManager.allDatas[runIndex].serial)\(allDataManager.allDatas[runIndex].wn != "" ? " | \(allDataManager.allDatas[runIndex].wn)" : "")")
                                 .font(.body)
+                            NavigationLink(destination: SwipeDataRunPage(
+                                allData : $allDataManager.allDatas[runIndex])){
+                                //EmptyView()
+                            }
+                            //.opacity(0)
+                            //.frame(width: 0, height: 0)
+                            //.fixedSize()
 
                             
                             Spacer()
@@ -78,6 +86,51 @@ struct SwipeDataPage: View {
                     }
                 }
             }
+        }
+    }
+}
+
+struct SwipeDataRunPage : View {
+    
+    @Binding var allData : AllDataModel
+    
+    var body: some View {
+        VStack {
+            VStack {
+                Text("\(allData.name)").font(.title3).bold()
+                HStack {
+                    Text("0/2 Bottles Collected | 2/3 Sites Completed")
+                        .font(.caption)
+                }
+                Text("Sites").font(.title3).bold().foregroundColor(Color("Primary"))
+            }.padding(.bottom, 10)
+            
+                
+            ForEach(allData.sites.indices, id: \.self){ siteIndex in
+                SwipeDataSiteRow(site : $allData.sites[siteIndex])
+            }
+            
+            Spacer()
+        }
+    }
+}
+
+struct SwipeDataSiteRow : View {
+    
+    @Binding var site : Site2
+    
+    var body : some View {
+        VStack {
+            HStack {
+                Image(systemName: "arrowtriangle.down.circle")
+                    .frame(width: 50, alignment: .leading)
+                    .padding(.leading)
+                Text("\(site.name)")
+                    .font(.title3).bold()
+                    .frame(alignment: .leading)
+                Spacer()
+            }
+            
         }
     }
 }
