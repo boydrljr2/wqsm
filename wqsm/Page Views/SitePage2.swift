@@ -2,9 +2,10 @@
 //  SitePage2.swift
 //  wqsm
 //
-//  Created by bobsDevMac on 8/28/23.
+//  Created by bobsDevMac on 9/9/23.
 //
 
+/*
 import SwiftUI
 
 struct SitePage2: View {
@@ -26,3 +27,4 @@ struct SitePage2_Previews: PreviewProvider {
         SitePage2(site: Site(id: 99, name: "Preview Site"))
     }
 }
+*/
