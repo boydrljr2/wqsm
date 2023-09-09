@@ -47,7 +47,8 @@ class AllDataManager: ObservableObject {
         AllDataModel (id: 1, name: "EB - Sunol NRD Pickup",
                  serial: "", wn: "WN",
                  numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0,
-            sites: [
+            sites: []
+            /*
                 Site2(id: 0, name: "Alameda East", comment: "...",
                       fieldTests : [
                         FieldTest(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
@@ -76,6 +77,7 @@ class AllDataManager: ObservableObject {
                         Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                      ),
                 ]
+             */
            ),
         AllDataModel (id: 2, name: "EB1 (1st Mon) TESLA",
                  serial: "2304028", wn: "WN",

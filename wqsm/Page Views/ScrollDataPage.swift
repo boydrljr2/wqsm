@@ -21,7 +21,7 @@ struct ScrollDataPage: View {
                     )
                     {
                         HStack {
-                            Text(allDataManager.allDatas[runIndex].serial != "" ? "Serial:\(allDataManager.allDatas[runIndex].serial)" : "")
+                            Text(allDataManager.allDatas[runIndex].serial != "" ? "\(allDataManager.allDatas[runIndex].serial)" : "")
                             //Text(allDataManager.allDatas[runIndex].wn != "" ?
                             //     " \(allDataManager.allDatas[runIndex].wn) " : "" )
                             Text(allDataManager.allDatas[runIndex].numberSites != 0 ? "\(allDataManager.allDatas[runIndex].numberSites) Sites " : "")
@@ -29,6 +29,7 @@ struct ScrollDataPage: View {
                             Text(allDataManager.allDatas[runIndex].numberOffline != 0 ? "\(allDataManager.allDatas[runIndex].numberOffline) Offline " : "")
                             Text(allDataManager.allDatas[runIndex].numberTasks != 0 ? "\(allDataManager.allDatas[runIndex].numberTasks) Tasks" : "")
                         }
+                        .frame(maxWidth: .infinity)
                         .font(.caption)
                         .foregroundColor(Color("Primary"))
                         .padding(.bottom, 20)
@@ -42,8 +43,6 @@ struct ScrollDataPage: View {
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        //.navigationTitle("Today's Runs > Sites > Tasks")
-        //.navigationBarTitleDisplayMode(.automatic)
     }
 }
 

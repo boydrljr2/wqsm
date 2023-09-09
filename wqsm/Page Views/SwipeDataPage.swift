@@ -51,15 +51,11 @@ struct SwipeDataPage: View {
                                 "\(allDataManager.allDatas[runIndex].wn)" :
                                     "\(allDataManager.allDatas[runIndex].serial)\(allDataManager.allDatas[runIndex].wn != "" ? " | \(allDataManager.allDatas[runIndex].wn)" : "")")
                                 .font(.body)
-                            NavigationLink(destination: SwipeDataRunPage(
-                                allData : $allDataManager.allDatas[runIndex])){
-                                //EmptyView()
+                            if allDataManager.allDatas[runIndex].sites.count > 0 {
+                                NavigationLink(destination: SwipeDataRunPage(
+                                    allData : $allDataManager.allDatas[runIndex])){
+                                    }
                             }
-                            //.opacity(0)
-                            //.frame(width: 0, height: 0)
-                            //.fixedSize()
-
-                            
                             Spacer()
                         }
 
@@ -105,7 +101,6 @@ struct SwipeDataRunPage : View {
                 Text("Sites").font(.title3).bold().foregroundColor(Color("Primary"))
             }.padding(.bottom, 10)
             
-                
             ForEach(allData.sites.indices, id: \.self){ siteIndex in
                 SwipeDataSiteRow(site : $allData.sites[siteIndex])
             }
@@ -123,15 +118,47 @@ struct SwipeDataSiteRow : View {
         VStack {
             HStack {
                 Image(systemName: "arrowtriangle.down.circle")
-                    .frame(width: 50, alignment: .leading)
                     .padding(.leading)
                 Text("\(site.name)")
                     .font(.title3).bold()
                     .frame(alignment: .leading)
                 Spacer()
+                Image(systemName: "arrowtriangle.down")
+                Image(systemName: "gearshape")
+                    .padding(.trailing)
             }
             
+            if site.fieldTests.count > 0 {
+                ForEach (site.fieldTests.indices, id: \.self) { fieldTestIndex in
+                    HStack{
+                        Text("\(site.fieldTests[fieldTestIndex].name)")
+                            .padding(.leading, 50)
+                        
+                        Text("\(site.fieldTests[fieldTestIndex].value)")
+                        
+                        Spacer()
+                    }
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
+                }
+            }
+            /*
+            if site.bottles.count > 0 {
+                ForEach (site.bottles.indices, id: \.self) { bottleIndex in
+                    HStack{
+                        Text("\(site.bottles[bottleIndex].name)")
+                            .font(.body)
+                            .padding(.leading, 50)
+                        Text("\(site.bottles[bottleIndex].collectedTimeStamp)")
+                            .font(.body)
+                        
+                        Spacer()
+                    }
+                }
+            }
+            */
         }
+        Divider()
     }
 }
 
