@@ -112,7 +112,7 @@ struct SwipeDataRunPage : View {
 
 struct SwipeDataSiteRow : View {
     
-    @Binding var site : Site2
+    @Binding var site : SiteModel
     
     var body : some View {
         VStack {

@@ -17,16 +17,18 @@ struct ContentView: View {
                         .padding(.top, geometry.safeAreaInsets.top)
                     
                     TabView {
+                        
+                        SwipeDataPage()
+                            .tabItem {
+                                Image(systemName: "chevron.right.2")
+                                Text("Swipe View")
+                            }
+                        
                         ScrollDataPage()
                             .frame(maxWidth: .infinity)
                             .tabItem {
                                 Image(systemName: "chevron.up.chevron.down")
                                 Text("Scroll View")
-                            }
-                        SwipeDataPage()
-                            .tabItem {
-                                Image(systemName: "chevron.right.2")
-                                Text("Swipe View")
                             }
                     }
                 }
@@ -38,10 +40,7 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(BottleManager())
-            .environmentObject(RunsManager())
-            .environmentObject(RunsManager2())
-            .environmentObject(FieldTestManager())
             .environmentObject(AllDataManager())
+
     }
 }

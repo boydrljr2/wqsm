@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Bottle: Identifiable {
+struct BottleModel: Identifiable {
     var id: Int
     var name: String
     //Added collected for binding to toggle

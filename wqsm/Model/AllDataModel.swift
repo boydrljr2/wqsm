@@ -17,6 +17,6 @@ struct AllDataModel: Identifiable {
     var numberOffline: Int
     var numberTasks: Int
     
-    var sites: [Site2]
+    var sites: [SiteModel]
     
 }

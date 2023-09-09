@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct Site2: Identifiable {
+struct SiteModel: Identifiable {
     var id: Int
     var name: String
     var comment : String
     
-    var fieldTests : [FieldTest]
+    var fieldTests : [FieldTestModel]
     
-    var bottles : [Bottle]
+    var bottles : [BottleModel]
     
 }

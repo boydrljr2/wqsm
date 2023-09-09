@@ -48,7 +48,7 @@ struct ScrollDataPage: View {
 
 struct ScrollDataSitesPageRow: View {
     
-    @Binding var site: Site2
+    @Binding var site: SiteModel
     
     var body: some View {
         VStack (alignment: .leading) {
@@ -127,7 +127,7 @@ struct ScrollDataSitesPageRow: View {
 
 struct ScrollDataFieldTestsPageRow: View {
     
-    @Binding var fieldTest: FieldTest
+    @Binding var fieldTest: FieldTestModel
     
     var body: some View {
         HStack {
@@ -150,7 +150,7 @@ struct ScrollDataFieldTestsPageRow: View {
 struct ScrollDataBottlesItemRow : View {
     
     //var bottle: Bottle
-    @Binding var bottle : Bottle
+    @Binding var bottle : BottleModel
     
     var body: some View {
         HStack {

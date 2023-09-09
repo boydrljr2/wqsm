@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FieldTest: Decodable, Identifiable {
+struct FieldTestModel: Decodable, Identifiable {
     var id: Int
     var name: String
     var value: String

@@ -17,5 +17,5 @@ struct Run2: Identifiable {
     var numberOffline: Int
     var numberTasks: Int
     
-    var sites: [Site]
+    var sites: [SiteModel]
 }

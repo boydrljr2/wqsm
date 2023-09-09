@@ -11,20 +11,13 @@ import SwiftUI
 struct wqsmApp: App {
     
     //Create environmentobject singletons
-    var runsManager = RunsManager()
-    var runsManager2 = RunsManager2()
-    var bottleManager = BottleManager()
-    var fieldTestManager = FieldTestManager()
     var allDataManager = AllDataManager()
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(runsManager)
-                .environmentObject(runsManager2)
-                .environmentObject(bottleManager)
-                .environmentObject(fieldTestManager)
                 .environmentObject(allDataManager)
+
         }
     }
 }
