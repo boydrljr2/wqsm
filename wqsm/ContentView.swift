@@ -10,30 +10,31 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
-        NavigationView {
-            GeometryReader { geometry in
+        TabView {
+            NavigationView {
                 VStack {
                     AppTitle()
-                        .padding(.top, geometry.safeAreaInsets.top)
-                    
-                    TabView {
-                        
-                        SwipeDataPage()
-                            .tabItem {
-                                Image(systemName: "chevron.right.2")
-                                Text("Swipe View")
-                            }
-                        
-                        ScrollDataPage()
-                            .frame(maxWidth: .infinity)
-                            .tabItem {
-                                Image(systemName: "chevron.up.chevron.down")
-                                Text("Scroll View")
-                            }
-                    }
+                    SwipeDataPage()
                 }
+                .navigationBarTitle("", displayMode: .inline) // You can modify the title here
             }
-        }.navigationViewStyle(StackNavigationViewStyle())
+            .tabItem {
+                Image(systemName: "chevron.right.2")
+                Text("Swipe View")
+            }
+            
+            NavigationView {
+                VStack {
+                    AppTitle()
+                    ScrollDataPage()
+                }
+                .navigationBarTitle("", displayMode: .inline) // You can modify the title here
+            }
+            .tabItem {
+                Image(systemName: "chevron.up.chevron.down")
+                Text("Scroll View")
+            }
+        }
     }
 }
 
@@ -41,6 +42,5 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(AllDataManager())
-
     }
 }
