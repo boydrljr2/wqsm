@@ -165,22 +165,11 @@ class AllDataManager: ObservableObject {
                       ]                      ),
                 ]
            ),
-        AllDataModel (id: 4, name: "EB - Deliver Sample Milbrai to Sunol",
+        AllDataModel (id: 4, name: "EB - Deliver Sample Milbrae to Sunol",
                  serial: "", wn: "WN",
                  numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0,
-            sites: [
-                SiteModel(id: 0, name: "Alameda East",
-                          comment: "...",
-                          complete : false,
-                      fieldTests : [
-                        FieldTestModel(id: 0, name: "", value: "3", time: "3:45pm"),
-                      ],
-                      bottles : [
-                        BottleModel( id: 0, name: "", collected: true, collectedTimeStamp: "" ),
-                      ]
-                     ),
-                ]
-           ),
+            sites: []
+         ),
         AllDataModel (id: 5, name: "CITY A1 w/SS",
                  serial: "2304028", wn: "WN",
                  numberSites: 7, numberCompleted: 5, numberOffline: 2, numberTasks: 0,

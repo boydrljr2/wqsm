@@ -71,11 +71,11 @@ struct ScrollDataSitesPageRow: View {
                 Text("Field Test")
                     .frame(width: 160, alignment: .leading)
                 Spacer()
-                Text("Value")
-                    .frame(width: 50, alignment: .trailing)
-                Spacer()
-                Text("Time")
-                    .frame(width: 80, alignment: .trailing)
+                //Text("Value")
+                //    .frame(width: 50, alignment: .trailing)
+                //Spacer()
+                //Text("Time")
+                //    .frame(width: 80, alignment: .trailing)
             }
             .font(.body)
             .foregroundColor(Color(red: 0.2, green : 0.4, blue: 0.2))
@@ -84,7 +84,6 @@ struct ScrollDataSitesPageRow: View {
             ForEach(site.fieldTests.indices, id: \.self) {fieldTestIndex in
                 ScrollDataFieldTestsPageRow(fieldTest : $site.fieldTests[fieldTestIndex])
                     .background(fieldTestIndex % 2 == 0 ? Color.clear : Color("Background"))
-                    //.padding()
             }
             
             Divider()
@@ -92,10 +91,10 @@ struct ScrollDataSitesPageRow: View {
             HStack {
                 Text("Bottle to Collect")
                     .frame(width: 200, alignment: .leading)
-                Text("Set")
+                //Text("Set")
                 Spacer()
-                Text("Time")
-                    .frame(alignment: .trailing)
+                //Text("Time")
+                //    .frame(alignment: .trailing)
             }
             .font(.body)
             //dark green for Field Test and Bottle headers
@@ -149,7 +148,6 @@ struct ScrollDataFieldTestsPageRow: View {
 
 struct ScrollDataBottlesItemRow : View {
     
-    //var bottle: Bottle
     @Binding var bottle : BottleModel
     
     var body: some View {
@@ -157,23 +155,15 @@ struct ScrollDataBottlesItemRow : View {
             Text(bottle.name)
                 .frame(width: 200, alignment: .leading)//.font(.caption)
             
-            /*
-            Image(systemName: bottle.collected == true ?
-                    "square.fill.and.line.vertical.and.square" :
-                    "square.and.line.vertical.and.square.fill")
-                .resizable()
-                .frame(maxWidth: 25, alignment: .trailing)
-            */
-            
             Toggle(isOn : $bottle.collected) {
                 Text("")
                     .frame(alignment: .leading)
             }
             
             
-            Spacer()
-            Text(bottle.collectedTimeStamp)
-                .frame(alignment: .trailing).font(.body)
+            //Spacer()
+            //Text(bottle.collectedTimeStamp)
+            //    .frame(alignment: .trailing).font(.body)
         }
     }
 }
