@@ -11,6 +11,7 @@ struct SiteModel: Identifiable {
     var id: Int
     var name: String
     var comment : String
+    var complete : Bool
     
     var fieldTests : [FieldTestModel]
     

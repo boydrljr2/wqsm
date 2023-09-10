@@ -1,5 +1,5 @@
 //
-//  AllData.swift
+//  Run2.swift
 //  wqsm
 //
 //  Created by bobsDevMac on 8/28/23.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AllDataModel: Identifiable {
+struct RunModel: Identifiable {
     var id: Int
     var name: String
     var serial: String
@@ -33,5 +33,6 @@ struct AllDataModel: Identifiable {
     var bottlesCollected : Int {
         return sites.reduce(0) { $0 + $1.bottles.filter{$0.collected}.count }
     }
+
     
 }

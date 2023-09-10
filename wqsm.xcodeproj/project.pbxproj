@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9037C1832A9CFB4500F8401D /* Run2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C1822A9CFB4500F8401D /* Run2.swift */; };
+		9037C1832A9CFB4500F8401D /* RunModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C1822A9CFB4500F8401D /* RunModel.swift */; };
 		9037C18E2A9D3F8400F8401D /* BottleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9037C18D2A9D3F8400F8401D /* BottleModel.swift */; };
 		9068D9072AAB7A580078892B /* SwipeDataPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9068D9062AAB7A580078892B /* SwipeDataPage.swift */; };
 		907AB2C52A9D5E5400B489BF /* AllDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907AB2C42A9D5E5400B489BF /* AllDataManager.swift */; };
@@ -24,7 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		9037C1822A9CFB4500F8401D /* Run2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Run2.swift; sourceTree = "<group>"; };
+		9037C1822A9CFB4500F8401D /* RunModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunModel.swift; sourceTree = "<group>"; };
 		9037C18D2A9D3F8400F8401D /* BottleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottleModel.swift; sourceTree = "<group>"; };
 		9068D9062AAB7A580078892B /* SwipeDataPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDataPage.swift; sourceTree = "<group>"; };
 		907AB2C42A9D5E5400B489BF /* AllDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllDataManager.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		90956CC32A96D76C00130390 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9037C1822A9CFB4500F8401D /* Run2.swift */,
+				9037C1822A9CFB4500F8401D /* RunModel.swift */,
 				9037C18D2A9D3F8400F8401D /* BottleModel.swift */,
 				90E2FEFD2AACCBA700EB994F /* FieldTestModel.swift */,
 				907AB2C42A9D5E5400B489BF /* AllDataManager.swift */,
@@ -194,7 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				907AB2CB2A9D656900B489BF /* AllDataModel.swift in Sources */,
-				9037C1832A9CFB4500F8401D /* Run2.swift in Sources */,
+				9037C1832A9CFB4500F8401D /* RunModel.swift in Sources */,
 				90E2FEFE2AACCBA700EB994F /* FieldTestModel.swift in Sources */,
 				90956CC02A96D41D00130390 /* AppTitle.swift in Sources */,
 				9037C18E2A9D3F8400F8401D /* BottleModel.swift in Sources */,

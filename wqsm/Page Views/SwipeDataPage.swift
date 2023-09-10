@@ -13,8 +13,8 @@ struct SwipeDataPage: View {
     
     static func dateString(from date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .medium
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
         return formatter.string(from: date)
     }
     
@@ -90,14 +90,20 @@ struct SwipeDataRunPage : View {
     
     @Binding var allData : AllDataModel
     
+    
     var body: some View {
         VStack {
             VStack {
-                Text("\(allData.name)").font(.title3).bold()
-                HStack {
-                    Text("0/2 Bottles Collected | 2/3 Sites Completed")
-                        .font(.caption)
+                VStack {
+                    Text("\(allData.name)").font(.title3).bold()
+                    HStack {
+                        Text("\(allData.bottlesCollected) / \(allData.bottleCount) Bottles Collected  |  \(allData.sitesComplete) / \(allData.siteCount) Sites Completed")
+                            .font(.caption)
+                    }
                 }
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color("LightGray"))
                 Text("Sites").font(.title3).bold().foregroundColor(Color("Primary"))
             }.padding(.bottom, 10)
             
