@@ -110,7 +110,7 @@ struct SwipeDataRunPage : View {
             
             ForEach(allData.sites.indices, id: \.self){ siteIndex in
                 SwipeDataSiteRow(
-                    //allData : $allData,
+                    allData : $allData,
                     site : $allData.sites[siteIndex])
             }
             
@@ -121,13 +121,13 @@ struct SwipeDataRunPage : View {
 
 struct SwipeDataSiteRow : View {
     
-    //@Binding var allData : AllDataModel
+    @Binding var allData : AllDataModel
     @Binding var site : SiteModel
     
     
     var body : some View {
         NavigationLink(destination: SwipeDataSitePage(
-                //allData : $allData,
+                allData : $allData,
                 site : $site)) {
             VStack {
                 HStack {
@@ -164,12 +164,12 @@ struct SwipeDataSiteRow : View {
 
 struct SwipeDataSitePage : View {
     
-    //@Binding var allData : AllDataModel
+    @Binding var allData : AllDataModel
     @Binding var site : SiteModel
     
     var body : some View {
         VStack {
-            /*
+            
             VStack {
                 Text("\(allData.name)").font(.title3).bold()
                 HStack {
@@ -180,7 +180,7 @@ struct SwipeDataSitePage : View {
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color("LightGray"))
-            */
+            
             Text("\(site.name)").font(.title).bold().foregroundColor(Color("Primary"))
             
             Text("Field/Test Data")
