@@ -91,7 +91,6 @@ struct SwipeDataRunPage : View {
     
     @Binding var allData : AllDataModel
     
-    
     var body: some View {
         VStack {
             VStack {
@@ -226,15 +225,11 @@ struct SwipeDataFieldTestsRow : View {
             Text(fieldTest.name)
                 .font(.title3).bold()
             Spacer()
-            VStack {
-                TextField("Value", text: $fieldTest.value)
-                    .keyboardType(.numberPad)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .frame(width: 50, alignment: .trailing)
-                    .multilineTextAlignment(.trailing)
-                Text("F")
-                    .font(.caption)
-            }
+            TextField("Value", text: $fieldTest.value)
+                .keyboardType(.numberPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(width: 50, alignment: .trailing)
+                .multilineTextAlignment(.trailing)
         }
         .padding(.leading).padding(.trailing)
     }
