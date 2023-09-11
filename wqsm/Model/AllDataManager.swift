@@ -15,11 +15,11 @@ class AllDataManager: ObservableObject {
             numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
             sites: [
                 SiteModel(id: 0, name: "Alameda East",
-                          comment: "A site comment...",
+                          comment: "PH 8.4",
                           complete : true,
                       fieldTests : [
                         FieldTestModel(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
-                        FieldTestModel(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
+                        FieldTestModel(id: 1, name: "Temperature (F)", value: "95", time: "4:05pm"),
                       ],
                       bottles : [
                         BottleModel( id: 0, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
@@ -27,7 +27,7 @@ class AllDataManager: ObservableObject {
                       ]
                      ),
                 SiteModel(id: 1, name: "IRV_PORTAL",
-                          comment: "Another site comment...",
+                          comment: "PH 8.0",
                           complete : true,
                       fieldTests : [
                         FieldTestModel(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
@@ -38,7 +38,7 @@ class AllDataManager: ObservableObject {
                         BottleModel( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                     ),
                 SiteModel(id: 2, name: "SVWTP_EFF",
-                          comment: "comments...",
+                          comment: "PH 7.9",
                           complete : false,
                       fieldTests : [
                         FieldTestModel(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
