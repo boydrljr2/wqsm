@@ -32,7 +32,9 @@ struct SwipeDataPage: View {
                         Text(Self.dateString(from: Date())).font(.caption)
                         Spacer()
                     }
-                }.padding(.bottom)
+                }
+                .padding(.bottom)
+                
                 
                 ForEach(allDataManager.allDatas.indices, id: \.self) { runIndex in
                     
@@ -255,6 +257,7 @@ struct SwipeDataBottlesRow : View {
         .padding(.leading).padding(.trailing)
     }
 }
+ 
 
 struct SwipeDataPage_Previews: PreviewProvider {
     static var previews: some View {

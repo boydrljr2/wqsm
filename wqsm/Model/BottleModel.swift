@@ -13,4 +13,5 @@ struct BottleModel: Identifiable {
     //Added collected for binding to toggle
     var collected: Bool
     var collectedTimeStamp: String
+
 }

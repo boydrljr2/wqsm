@@ -10,6 +10,16 @@ import SwiftUI
 struct ContentView: View {
     
     var body: some View {
+        
+        NavigationView {
+            VStack {
+                AppTitle()
+                SwipeDataPage()
+            }
+            .navigationBarTitle("", displayMode: .inline) // You can modify the title here
+        }
+        
+        /*
         TabView {
             NavigationView {
                 VStack {
@@ -35,6 +45,7 @@ struct ContentView: View {
                 Text("Scroll View")
             }
         }
+        */
     }
 }
 
