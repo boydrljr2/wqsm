@@ -8,7 +8,7 @@
 import Foundation
 
 struct SiteModel: Identifiable {
-    var id: Int
+    var id = UUID()
     var name: String
     var comment : String
     var complete : Bool

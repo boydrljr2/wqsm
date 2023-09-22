@@ -8,7 +8,8 @@
 import Foundation
 
 struct BottleModel: Identifiable {
-    var id: Int
+    //var id: Int
+    var id = UUID()
     var name: String
     //Added collected for binding to toggle
     var collected: Bool

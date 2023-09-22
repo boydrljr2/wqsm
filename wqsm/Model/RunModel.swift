@@ -7,8 +7,10 @@
 
 import Foundation
 
-struct RunModel: Identifiable {
-    var id: Int
+//struct AllDataModel: Identifiable {
+struct RunModel : Identifiable {
+    //var id: Int
+    var id = UUID()
     var name: String
     var serial: String
     var wn : String
@@ -33,6 +35,5 @@ struct RunModel: Identifiable {
     var bottlesCollected : Int {
         return sites.reduce(0) { $0 + $1.bottles.filter{$0.collected}.count }
     }
-
     
 }

@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct AllDataModel: Identifiable {
-    var id: Int
+struct AllDataModel : Identifiable {
+    //var id: Int
+    var id = UUID()
     var name: String
     var serial: String
     var wn : String

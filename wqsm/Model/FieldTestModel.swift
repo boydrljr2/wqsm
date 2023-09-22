@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct FieldTestModel: Decodable, Identifiable {
-    var id: Int
+struct FieldTestModel: Identifiable {
+    var id = UUID()
     var name: String
     var value: String
     var time: String

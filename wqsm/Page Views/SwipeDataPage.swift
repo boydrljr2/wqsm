@@ -35,48 +35,51 @@ struct SwipeDataPage: View {
                 }
                 .padding(.bottom)
                 
-                
-                ForEach(allDataManager.allDatas.indices, id: \.self) { runIndex in
-                    
-                    VStack {
+                ForEach (allDataManager.allDatas, id: \.id) { allData in
+                    VStack (alignment: .leading){
                         
+                        //Hstack for name and navigation link
                         HStack {
-                            Text(allDataManager.allDatas[runIndex].name != "" ?
-                                 "\(allDataManager.allDatas[runIndex].name)" : "")
-                            .font(.title2).bold()
-                            .foregroundColor(allDataManager.allDatas[runIndex].serial == "" ? Color.orange : Color.primary)
+                            Text(allData.name != "" ? "\(allData.name)" : "")
+                                .font(.title2).bold()
+                                .foregroundColor(allData.serial == "" ? Color.orange : Color.primary)
                             Spacer()
-                            if allDataManager.allDatas[runIndex].sites.count > 0 {
-                                NavigationLink(destination: SwipeDataRunPage(
-                                    allData : $allDataManager.allDatas[runIndex])){
-                                    }.frame(maxWidth: 10)
+                            
+                            if allData.sites.count > 0 {
+                                NavigationLink(destination: SwipeDataRunPage(allData : allData)){
+                                    EmptyView()
+                                    //Image(systemName: "arrow.right.circle.fill")
+                                }.frame(maxWidth: 10)
+                            } else
+                             { EmptyView()
                             }
+                            
+                            
                         }
                         
+                        // HStack for serial and wn
                         HStack {
-                            // This Text view handles both .serial and the divider |, if needed
-                            Text(allDataManager.allDatas[runIndex].serial == "" ?
-                                 "\(allDataManager.allDatas[runIndex].wn)" :
-                                    "\(allDataManager.allDatas[runIndex].serial)\(allDataManager.allDatas[runIndex].wn != "" ? " | \(allDataManager.allDatas[runIndex].wn)" : "")")
+                            Text(allData.serial == "" ?
+                                 "\(allData.wn)" :
+                                    "\(allData.serial)\(allData.wn != "" ? " | \(allData.wn)" : "")")
                             .font(.body)
                             Spacer()
                         }
                         
-                        
+                        //HStack for other data
                         HStack{
-                            Text(allDataManager.allDatas[runIndex].numberSites != 0 ?
-                                 "\(allDataManager.allDatas[runIndex].numberSites) Sites | " : "")
+                            Text(allData.numberSites != 0 ? "\(allData.numberSites) Sites | " : "")
+                                .font(.body)
+                            Text(allData.numberSites != 0 &&
+                                 (allData.numberCompleted != 0 ||
+                                  allData.numberOffline != 0 ) ? " | " : "")
+                            Text(allData.numberCompleted != 0 ?
+                                 "\(allData.numberCompleted) Completed" : "")
                             .font(.body)
-                            Text(allDataManager.allDatas[runIndex].numberSites != 0 &&
-                                 (allDataManager.allDatas[runIndex].numberCompleted != 0 ||
-                                  allDataManager.allDatas[runIndex].numberOffline != 0 ) ? " | " : "")
-                            Text(allDataManager.allDatas[runIndex].numberCompleted != 0 ?
-                                 "\(allDataManager.allDatas[runIndex].numberCompleted) Completed" : "")
-                            .font(.body)
-                            Text(allDataManager.allDatas[runIndex].numberCompleted != 0 &&
-                                 allDataManager.allDatas[runIndex].numberOffline != 0 ? " | " : "")
-                            Text(allDataManager.allDatas[runIndex].numberOffline != 0 ?
-                                 "\(allDataManager.allDatas[runIndex].numberOffline) Offline" : "")
+                            Text(allData.numberCompleted != 0 &&
+                                 allData.numberOffline != 0 ? " | " : "")
+                            Text(allData.numberOffline != 0 ?
+                                 "\(allData.numberOffline) Offline" : "")
                             .font(.body)
                             .foregroundColor(Color.red)
                             
@@ -91,11 +94,11 @@ struct SwipeDataPage: View {
 
 struct SwipeDataRunPage : View {
     
-    @Binding var allData : AllDataModel
+    //@Binding var allData : AllDataModel
+    var allData : AllDataModel
     
     var body: some View {
         VStack {
-            VStack {
                 VStack {
                     Text("\(allData.name)").font(.title3).bold()
                     HStack {
@@ -110,27 +113,28 @@ struct SwipeDataRunPage : View {
                     .frame(alignment: .center)
             }.padding(.bottom, 10)
             
-            ForEach(allData.sites.indices, id: \.self){ siteIndex in
+            
+            ForEach(allData.sites, id: \.id){ site in
                 SwipeDataSiteRow(
-                    allData : $allData,
-                    site : $allData.sites[siteIndex])
+                    allData : allData,
+                    site : site)
             }
             
+        
             Spacer()
         }
-    }
+
 }
 
 struct SwipeDataSiteRow : View {
     
-    @Binding var allData : AllDataModel
-    @Binding var site : SiteModel
-    
+    var allData : AllDataModel
+    var site : SiteModel
     
     var body : some View {
         NavigationLink(destination: SwipeDataSitePage(
-                allData : $allData,
-                site : $site)) {
+                allData : allData,
+                site : site)) {
             VStack {
                 HStack {
                     Image(systemName: "arrowtriangle.down.circle")
@@ -145,12 +149,12 @@ struct SwipeDataSiteRow : View {
                 }
                 
                 if site.fieldTests.count > 0 {
-                    ForEach (site.fieldTests.indices, id: \.self) { fieldTestIndex in
+                    ForEach (site.fieldTests, id: \.id) { test in
                         HStack{
-                            Text("\(site.fieldTests[fieldTestIndex].name)")
+                            Text("\(test.name)")
                                 .padding(.leading, 50)
                             
-                            Text("\(site.fieldTests[fieldTestIndex].value)")
+                            Text("\(test.value)")
                             
                             Spacer()
                         }
@@ -158,6 +162,7 @@ struct SwipeDataSiteRow : View {
                         .foregroundColor(Color.gray)
                     }
                 } else { Text("No Collected Field/Test Data")}
+                
             }
         }
         Divider()
@@ -166,12 +171,11 @@ struct SwipeDataSiteRow : View {
 
 struct SwipeDataSitePage : View {
     
-    @Binding var allData : AllDataModel
-    @Binding var site : SiteModel
+    var allData : AllDataModel
+    var site : SiteModel
     
     var body : some View {
         VStack {
-            
             VStack {
                 Text("\(allData.name)").font(.title3).bold()
                 HStack {
@@ -188,15 +192,15 @@ struct SwipeDataSitePage : View {
             Text("Field/Test Data")
                 .font(.title2).bold().foregroundColor(Color.black)
                 .padding(.bottom)
-            
-            ForEach(site.fieldTests.indices, id: \.self) {fieldTestIndex in
-                SwipeDataFieldTestsRow(fieldTest : $site.fieldTests[fieldTestIndex])
+            /*
+            ForEach(site.fieldTests, id: \.id) {test in
+                SwipeDataFieldTestsRow(fieldTest : test)
             }
-            
+            */
             VStack {
                 Text("Comments")
                 HStack {
-                    TextEditor(text: $site.comment )
+                    TextEditor(text: site.comment )
                         .frame(height: 120)
                         .background(Color.white)
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
@@ -208,16 +212,15 @@ struct SwipeDataSitePage : View {
                 .padding(.top)
                 .padding(.bottom)
             
-            ForEach(site.bottles.indices, id: \.self) {bottleIndex in
-                SwipeDataBottlesRow(bottle : $site.bottles[bottleIndex])
+            ForEach(site.bottles, id: \.id) {bottle in
+                SwipeDataBottlesRow(bottle : bottle)
             }
-            
             Spacer()
         }
     }
 }
-
-
+    
+    
 struct SwipeDataFieldTestsRow : View {
     
     @Binding var fieldTest : FieldTestModel
@@ -225,7 +228,6 @@ struct SwipeDataFieldTestsRow : View {
     var body: some View {
         HStack {
             Text(fieldTest.name)
-                .font(.title3).bold()
             Spacer()
             TextField("Value", text: $fieldTest.value)
                 .keyboardType(.numberPad)
@@ -236,17 +238,22 @@ struct SwipeDataFieldTestsRow : View {
         .padding(.leading).padding(.trailing)
     }
 }
-
+    
 struct SwipeDataBottlesRow : View {
-
+    
     @Binding var bottle : BottleModel
+    //Cannot use instance member 'bottle' within property initializer; property initializers run before 'self' is available
+    //@State var name = bottle.name
+    //@State var collected = bottle.collected
     
     var body: some View {
         VStack {
             HStack {
+                //Text($name)
                 Text(bottle.name)
                     .frame(width: 200, alignment: .leading)//.font(.caption)
                 Spacer()
+                //Toggle(isOn : $collected) {
                 Toggle(isOn : $bottle.collected) {
                     Text("")
                         .frame(alignment: .leading)
