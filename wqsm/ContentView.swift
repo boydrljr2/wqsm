@@ -18,34 +18,6 @@ struct ContentView: View {
             }
             .navigationBarTitle("", displayMode: .inline) // You can modify the title here
         }
-        
-        /*
-        TabView {
-            NavigationView {
-                VStack {
-                    AppTitle()
-                    SwipeDataPage()
-                }
-                .navigationBarTitle("", displayMode: .inline) // You can modify the title here
-            }
-            .tabItem {
-                Image(systemName: "chevron.right.2")
-                Text("Swipe View")
-            }
-            
-            NavigationView {
-                VStack {
-                    AppTitle()
-                    ScrollDataPage()
-                }
-                .navigationBarTitle("", displayMode: .inline) // You can modify the title here
-            }
-            .tabItem {
-                Image(systemName: "chevron.up.chevron.down")
-                Text("Scroll View")
-            }
-        }
-        */
     }
 }
 

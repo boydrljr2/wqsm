@@ -173,6 +173,14 @@ struct SwipeDataSitePage : View {
     
     var allData : AllDataModel
     var site : SiteModel
+    @State private var editedComment : String
+    @State private var navigateToRunPage: Bool = false
+    
+    init(allData: AllDataModel, site: SiteModel) {
+        self.allData = allData
+        self.site = site
+        _editedComment = State(initialValue: site.comment)
+    }
     
     var body : some View {
         VStack {
@@ -192,15 +200,15 @@ struct SwipeDataSitePage : View {
             Text("Field/Test Data")
                 .font(.title2).bold().foregroundColor(Color.black)
                 .padding(.bottom)
-            /*
-            ForEach(site.fieldTests, id: \.id) {test in
-                SwipeDataFieldTestsRow(fieldTest : test)
+            
+            ForEach(site.fieldTests, id: \.id) {fieldTest in
+                SwipeDataFieldTestsRow(fieldTest : fieldTest)
             }
-            */
+            
             VStack {
                 Text("Comments")
                 HStack {
-                    TextEditor(text: site.comment )
+                    TextEditor(text: $editedComment )
                         .frame(height: 120)
                         .background(Color.white)
                         .overlay(RoundedRectangle(cornerRadius: 8).stroke(Color.gray, lineWidth: 1))
@@ -215,21 +223,50 @@ struct SwipeDataSitePage : View {
             ForEach(site.bottles, id: \.id) {bottle in
                 SwipeDataBottlesRow(bottle : bottle)
             }
+            
             Spacer()
+            
+            NavigationLink("",destination: SwipeDataRunPage(allData: allData),
+                           isActive: $navigateToRunPage).hidden()
+                
+            
+            Button(action: {
+                updateSiteComment()
+                navigateToRunPage = true
+                
+            }) {
+                Text("Continue")
+                    .font(.title3).bold()
+                    .padding(5)
+                    .frame(maxWidth: 300)
+                    .background(Color("Primary"))
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+            }
         }
     }
+    func updateSiteComment() {
+        site.comment = editedComment
+    }
 }
+
     
     
 struct SwipeDataFieldTestsRow : View {
     
-    @Binding var fieldTest : FieldTestModel
+    var fieldTest : FieldTestModel
+    @State private var editedFieldTestValue : String
+    
+    init(fieldTest : FieldTestModel) {
+        self.fieldTest = fieldTest
+        _editedFieldTestValue = State(initialValue : fieldTest.value)
+    }
     
     var body: some View {
         HStack {
             Text(fieldTest.name)
             Spacer()
-            TextField("Value", text: $fieldTest.value)
+            TextField("Value", text: $editedFieldTestValue)
                 .keyboardType(.numberPad)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: 50, alignment: .trailing)
@@ -241,10 +278,16 @@ struct SwipeDataFieldTestsRow : View {
     
 struct SwipeDataBottlesRow : View {
     
-    @Binding var bottle : BottleModel
-    //Cannot use instance member 'bottle' within property initializer; property initializers run before 'self' is available
-    //@State var name = bottle.name
-    //@State var collected = bottle.collected
+    var bottle : BottleModel
+    @State private var editedBottleCollected : Bool
+    
+    init(bottle : BottleModel) {
+        self.bottle = bottle
+        _editedBottleCollected = State(initialValue : bottle.collected)
+    }
+    
+    
+
     
     var body: some View {
         VStack {
@@ -254,7 +297,7 @@ struct SwipeDataBottlesRow : View {
                     .frame(width: 200, alignment: .leading)//.font(.caption)
                 Spacer()
                 //Toggle(isOn : $collected) {
-                Toggle(isOn : $bottle.collected) {
+                Toggle(isOn : $editedBottleCollected) {
                     Text("")
                         .frame(alignment: .leading)
                 }
