@@ -22,9 +22,9 @@ class AllDataManager: ObservableObject {
                           complete : true,
                       fieldTests : [
                         FieldTestModel(//id: 0,
-                                       name: "C12 Residual, free", value: "3", time: "3:45pm"),
+                            name: "C12 Residual, free", value: "3", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 1,
-                            name: "Temperature (°F)", value: "95°", time: "4:05pm"),
+                            name: "Temperature (°F)", value: "95°", measure: "°F", time: "4:05pm"),
                       ],
                       bottles : [
                         BottleModel(//id: 0,
@@ -39,9 +39,9 @@ class AllDataManager: ObservableObject {
                           complete : true,
                       fieldTests : [
                         FieldTestModel(//id: 2,
-                            name: "Another Test", value: "6", time: "3:45pm"),
+                            name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 3,
-                            name: "Temperature (°F)", value: "80°", time: "4:25pm"),
+                            name: "Temperature (°F)", value: "80°", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         BottleModel(//id: 2,
@@ -55,9 +55,9 @@ class AllDataManager: ObservableObject {
                           complete : false,
                       fieldTests : [
                         FieldTestModel(//id: 2,
-                            name: "Another Test", value: "6", time: "3:45pm"),
+                            name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 3,
-                            name: "Temperature (°F)", value: "80°", time: "4:25pm"),
+                            name: "Temperature (°F)", value: "80°", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         BottleModel( //id: 2,
@@ -76,8 +76,8 @@ class AllDataManager: ObservableObject {
             /*
                 Site2(id: 0, name: "Alameda East", comment: "...",
                       fieldTests : [
-                        FieldTest(id: 0, name: "C12 Residual, free", value: "3", time: "3:45pm"),
-                        FieldTest(id: 1, name: "Temperature (F)", value: "82", time: "4:05pm"),
+                        FieldTest(id: 0, name: "C12 Residual, free", value: "3", measure: "ppm", time: "3:45pm"),
+                        FieldTest(id: 1, name: "Temperature (F)", value: "82", measure: "°F", time: "4:05pm"),
                       ],
                       bottles : [
                         Bottle( id: 0, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
@@ -86,16 +86,16 @@ class AllDataManager: ObservableObject {
                      ),
                 Site2(id: 1, name: "IRV_PORTAL", comment: "Comments here...",
                       fieldTests : [
-                        FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
-                        FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
+                        FieldTest(id: 2, name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
+                        FieldTest(id: 3, name: "Temperature (F)", value: "80", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
                         Bottle( id: 3, name: "250ml _GRAB_P_4~C(1) ", collected: false, collectedTimeStamp: "")
                       ]                     ),
                 Site2(id: 2, name: "SVWTP_EFF", comment: "Comments go here...",                      fieldTests : [
-                        FieldTest(id: 2, name: "Another Test", value: "6", time: "3:45pm"),
-                        FieldTest(id: 3, name: "Temperature (F)", value: "80", time: "4:25pm"),
+                        FieldTest(id: 2, name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
+                        FieldTest(id: 3, name: "Temperature (F)", value: "80", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         Bottle( id: 2, name: "250ml _GRAB_P_4~C(4) ", collected: true, collectedTimeStamp: "3:35 pm" ),
@@ -115,9 +115,9 @@ class AllDataManager: ObservableObject {
                           complete : true,
                       fieldTests : [
                         FieldTestModel(//id: 0,
-                            name: "C12 Residual, free", value: "3", time: "3:45pm"),
+                            name: "C12 Residual, free", value: "3", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 1,
-                            name: "Temperature (°F)", value: "82", time: "4:05pm"),
+                            name: "Temperature (°F)", value: "82", measure: "°F", time: "4:05pm"),
                       ],
                       bottles : [
                         BottleModel(//id: 0,
@@ -132,9 +132,9 @@ class AllDataManager: ObservableObject {
                           complete : true,
                       fieldTests : [
                         FieldTestModel(//id: 2,
-                            name: "Another Test", value: "6", time: "3:45pm"),
+                            name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 3,
-                            name: "Temperature (°F)", value: "80", time: "4:25pm"),
+                            name: "Temperature (°F)", value: "80", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         BottleModel(//id: 2,
@@ -148,9 +148,9 @@ class AllDataManager: ObservableObject {
                           complete : false,
                     fieldTests : [
                         FieldTestModel(//id: 2,
-                            name: "Another Test", value: "6", time: "3:45pm"),
+                            name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 3,
-                            name: "Temperature (°F)", value: "80", time: "4:25pm"),
+                            name: "Temperature (°F)", value: "87", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         BottleModel( //id: 2,
@@ -171,9 +171,9 @@ class AllDataManager: ObservableObject {
                           complete : false,
                       fieldTests : [
                         FieldTestModel(//id: 0,
-                            name: "C12 Residual, free", value: "3", time: "3:45pm"),
+                            name: "C12 Residual, free", value: "3", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 1,
-                            name: "Temperature (F)", value: "82", time: "4:05pm"),
+                            name: "Temperature (F)", value: "82", measure: "°F", time: "4:05pm"),
                       ],
                       bottles : [
                         BottleModel(// id: 0,
@@ -188,9 +188,9 @@ class AllDataManager: ObservableObject {
                           complete : false,
                       fieldTests : [
                         FieldTestModel(//id: 2,
-                            name: "Another Test", value: "6", time: "3:45pm"),
+                            name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 3,
-                            name: "Temperature (°F)", value: "80", time: "4:25pm"),
+                            name: "Temperature (°F)", value: "70", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         BottleModel( //id: 2,
@@ -204,9 +204,9 @@ class AllDataManager: ObservableObject {
                           complete : false,
                     fieldTests : [
                         FieldTestModel(//id: 2,
-                            name: "Another Test", value: "6", time: "3:45pm"),
+                            name: "Another Test", value: "6", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 3,
-                            name: "Temperature (°F)", value: "80", time: "4:25pm"),
+                            name: "Temperature (°F)", value: "83", measure: "°F", time: "4:25pm"),
                       ],
                       bottles : [
                         BottleModel( //id: 2,
@@ -233,9 +233,9 @@ class AllDataManager: ObservableObject {
                           complete : true,
                       fieldTests : [
                         FieldTestModel(//id: 0,
-                            name: "C12 Residual, free", value: "3", time: "3:45pm"),
+                            name: "C12 Residual, free", value: "3", measure: "ppm", time: "3:45pm"),
                         FieldTestModel(//id: 1,
-                            name: "Temperature (°F)", value: "82", time: "4:05pm"),
+                            name: "Temperature (°F)", value: "81", measure: "°F", time: "4:05pm"),
                       ],
                       bottles : [
                         BottleModel( //id: 0,

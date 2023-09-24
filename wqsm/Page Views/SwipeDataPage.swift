@@ -46,7 +46,7 @@ struct SwipeDataPage: View {
                             Spacer()
                             
                             if run.sites.count > 0 {
-                                NavigationLink(destination: SwipeDataRunPage(run : run)){
+                                NavigationLink(destination: RunPage(run : run)){
                                     EmptyView()
                                     //Image(systemName: "arrow.right.circle.fill")
                                 }.frame(maxWidth: 10)
@@ -92,9 +92,8 @@ struct SwipeDataPage: View {
     }
 }
 
-struct SwipeDataRunPage : View {
-    
-    //@Binding var allData : AllDataModel
+struct RunPage : View {
+
     var run : RunModel
     
     var body: some View {
@@ -115,7 +114,7 @@ struct SwipeDataRunPage : View {
             
             
             ForEach(run.sites, id: \.id){ site in
-                SwipeDataSiteRow(
+                SiteRow(
                     run : run,
                     site : site)
             }
@@ -126,13 +125,13 @@ struct SwipeDataRunPage : View {
 
 }
 
-struct SwipeDataSiteRow : View {
+struct SiteRow : View {
     
     var run : RunModel
     var site : SiteModel
     
     var body : some View {
-        NavigationLink(destination: SwipeDataSitePage(
+        NavigationLink(destination: SitePage(
                 run : run,
                 site : site)) {
             VStack {
@@ -169,7 +168,7 @@ struct SwipeDataSiteRow : View {
     }
 }
 
-struct SwipeDataSitePage : View {
+struct SitePage : View {
     
     var run : RunModel
     var site : SiteModel
@@ -202,7 +201,7 @@ struct SwipeDataSitePage : View {
                 .padding(.bottom)
             
             ForEach(site.fieldTests, id: \.id) {fieldTest in
-                SwipeDataFieldTestsRow(fieldTest : fieldTest)
+                FieldTestsRow(fieldTest : fieldTest)
             }
             
             VStack {
@@ -221,12 +220,12 @@ struct SwipeDataSitePage : View {
                 .padding(.bottom)
             
             ForEach(site.bottles, id: \.id) {bottle in
-                SwipeDataBottlesRow(bottle : bottle)
+                BottlesRow(bottle : bottle)
             }
             
             Spacer()
             
-            NavigationLink("",destination: SwipeDataRunPage(run: run),
+            NavigationLink("",destination: RunPage(run: run),
                            isActive: $navigateToRunPage).hidden()
                 
             
@@ -252,9 +251,9 @@ struct SwipeDataSitePage : View {
 
     
     
-struct SwipeDataFieldTestsRow : View {
+struct FieldTestsRow : View {
     
-    var fieldTest : FieldTestModel
+    @ObservedObject var fieldTest : FieldTestModel
     @State private var editedFieldTestValue : String
     
     init(fieldTest : FieldTestModel) {
@@ -264,21 +263,33 @@ struct SwipeDataFieldTestsRow : View {
     
     var body: some View {
         HStack {
-            Text(fieldTest.name)
+            VStack {
+                Text(fieldTest.name).font(.title3).bold()
+                Text(fieldTest.time).multilineTextAlignment(.leading).font(.caption)
+            }
+            
             Spacer()
-            TextField("Value", text: $editedFieldTestValue)
-                .keyboardType(.numberPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(width: 50, alignment: .trailing)
-                .multilineTextAlignment(.trailing)
+            VStack {
+                TextField("Value", text: $editedFieldTestValue)
+                    .keyboardType(.numberPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(width: 50, alignment: .trailing)
+                    .multilineTextAlignment(.trailing)
+                    .onChange(of: editedFieldTestValue) { newValue in
+                        fieldTest.value = newValue
+                    }
+                //This is where the measure goes
+                Text(fieldTest.measure).font(.caption)
+            }
         }
         .padding(.leading).padding(.trailing)
     }
+
 }
     
-struct SwipeDataBottlesRow : View {
+struct BottlesRow : View {
     
-    var bottle : BottleModel
+    @ObservedObject var bottle : BottleModel
     @State private var editedBottleCollected : Bool
     
     init(bottle : BottleModel) {
@@ -286,25 +297,25 @@ struct SwipeDataBottlesRow : View {
         _editedBottleCollected = State(initialValue : bottle.collected)
     }
     
-    
-
-    
     var body: some View {
         VStack {
             HStack {
-                //Text($name)
                 Text(bottle.name)
                     .frame(width: 200, alignment: .leading)//.font(.caption)
                 Spacer()
-                //Toggle(isOn : $collected) {
-                Toggle(isOn : $editedBottleCollected) {
-                    Text("")
-                        .frame(alignment: .leading)
-                }
+                Toggle("", isOn: $editedBottleCollected)
+                    .frame(alignment: .leading)
+                    .onChange(of: editedBottleCollected) { newValue in
+                        updateBottleCollected()
+                    }
             }
             Divider()
         }
         .padding(.leading).padding(.trailing)
+    }
+    
+    func updateBottleCollected() {
+        bottle.collected = editedBottleCollected
     }
 }
  
