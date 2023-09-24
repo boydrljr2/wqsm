@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class RunModel : Identifiable, ObservableObject {
     var id = UUID()

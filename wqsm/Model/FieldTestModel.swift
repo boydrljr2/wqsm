@@ -6,11 +6,18 @@
 //
 
 import Foundation
+import Combine
 
-struct FieldTestModel: Identifiable {
+class FieldTestModel: Identifiable, ObservableObject {
     var id = UUID()
-    var name: String
-    var value: String
-    var time: String
+    @Published var name: String
+    @Published var value: String
+    @Published var time: String
+    
+    init(name: String, value: String, time: String) {
+        self.name = name
+        self.value = value
+        self.time = time
+    }
 }
 

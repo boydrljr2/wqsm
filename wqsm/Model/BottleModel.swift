@@ -6,13 +6,17 @@
 //
 
 import Foundation
+import Combine
 
-struct BottleModel: Identifiable {
-    //var id: Int
+class BottleModel : Identifiable, ObservableObject {
     var id = UUID()
-    var name: String
-    //Added collected for binding to toggle
-    var collected: Bool
-    var collectedTimeStamp: String
-
+    @Published var name: String
+    @Published var collected: Bool
+    @Published var collectedTimeStamp: String
+    
+    init(name: String, collected: Bool, collectedTimeStamp : String) {
+        self.name = name
+        self.collected = collected
+        self.collectedTimeStamp = collectedTimeStamp
+    }
 }
