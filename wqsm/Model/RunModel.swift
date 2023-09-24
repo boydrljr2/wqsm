@@ -7,19 +7,32 @@
 
 import Foundation
 
-//struct AllDataModel: Identifiable {
-struct RunModel : Identifiable {
-    //var id: Int
+class RunModel : Identifiable, ObservableObject {
     var id = UUID()
-    var name: String
-    var serial: String
-    var wn : String
-    var numberSites: Int
-    var numberCompleted : Int
-    var numberOffline: Int
-    var numberTasks: Int
+    @Published var name: String
+    @Published var serial: String
+    @Published var wn : String
+    @Published var numberSites: Int
+    @Published var numberCompleted : Int
+    @Published var numberOffline: Int
+    @Published var numberTasks: Int
+    @Published var sites: [SiteModel]
     
-    var sites: [SiteModel]
+    init( name: String, serial: String, wn: String,
+          numberSites: Int,
+          numberCompleted: Int,
+          numberOffline: Int,
+          numberTasks: Int,
+          sites: [SiteModel]) {
+        self.name = name
+        self.serial = serial
+        self.wn = wn
+        self.numberSites = numberSites
+        self.numberCompleted = numberCompleted
+        self.numberOffline = numberOffline
+        self.numberTasks = numberTasks
+        self.sites = sites
+    }
     
     var siteCount: Int {
         return sites.count

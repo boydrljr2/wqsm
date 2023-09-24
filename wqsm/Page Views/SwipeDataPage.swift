@@ -35,18 +35,18 @@ struct SwipeDataPage: View {
                 }
                 .padding(.bottom)
                 
-                ForEach (allDataManager.allDatas, id: \.id) { allData in
+                ForEach (allDataManager.runs, id: \.id) { run in
                     VStack (alignment: .leading){
                         
                         //Hstack for name and navigation link
                         HStack {
-                            Text(allData.name != "" ? "\(allData.name)" : "")
+                            Text(run.name != "" ? "\(run.name)" : "")
                                 .font(.title2).bold()
-                                .foregroundColor(allData.serial == "" ? Color.orange : Color.primary)
+                                .foregroundColor(run.serial == "" ? Color.orange : Color.primary)
                             Spacer()
                             
-                            if allData.sites.count > 0 {
-                                NavigationLink(destination: SwipeDataRunPage(allData : allData)){
+                            if run.sites.count > 0 {
+                                NavigationLink(destination: SwipeDataRunPage(run : run)){
                                     EmptyView()
                                     //Image(systemName: "arrow.right.circle.fill")
                                 }.frame(maxWidth: 10)
@@ -59,27 +59,27 @@ struct SwipeDataPage: View {
                         
                         // HStack for serial and wn
                         HStack {
-                            Text(allData.serial == "" ?
-                                 "\(allData.wn)" :
-                                    "\(allData.serial)\(allData.wn != "" ? " | \(allData.wn)" : "")")
+                            Text(run.serial == "" ?
+                                 "\(run.wn)" :
+                                    "\(run.serial)\(run.wn != "" ? " | \(run.wn)" : "")")
                             .font(.body)
                             Spacer()
                         }
                         
                         //HStack for other data
                         HStack{
-                            Text(allData.numberSites != 0 ? "\(allData.numberSites) Sites | " : "")
+                            Text(run.numberSites != 0 ? "\(run.numberSites) Sites | " : "")
                                 .font(.body)
-                            Text(allData.numberSites != 0 &&
-                                 (allData.numberCompleted != 0 ||
-                                  allData.numberOffline != 0 ) ? " | " : "")
-                            Text(allData.numberCompleted != 0 ?
-                                 "\(allData.numberCompleted) Completed" : "")
+                            Text(run.numberSites != 0 &&
+                                 (run.numberCompleted != 0 ||
+                                  run.numberOffline != 0 ) ? " | " : "")
+                            Text(run.numberCompleted != 0 ?
+                                 "\(run.numberCompleted) Completed" : "")
                             .font(.body)
-                            Text(allData.numberCompleted != 0 &&
-                                 allData.numberOffline != 0 ? " | " : "")
-                            Text(allData.numberOffline != 0 ?
-                                 "\(allData.numberOffline) Offline" : "")
+                            Text(run.numberCompleted != 0 &&
+                                 run.numberOffline != 0 ? " | " : "")
+                            Text(run.numberOffline != 0 ?
+                                 "\(run.numberOffline) Offline" : "")
                             .font(.body)
                             .foregroundColor(Color.red)
                             
@@ -95,14 +95,14 @@ struct SwipeDataPage: View {
 struct SwipeDataRunPage : View {
     
     //@Binding var allData : AllDataModel
-    var allData : AllDataModel
+    var run : RunModel
     
     var body: some View {
         VStack {
                 VStack {
-                    Text("\(allData.name)").font(.title3).bold()
+                    Text("\(run.name)").font(.title3).bold()
                     HStack {
-                        Text("\(allData.bottlesCollected) / \(allData.bottleCount) Bottles Collected  |  \(allData.sitesComplete) / \(allData.siteCount) Sites Completed")
+                        Text("\(run.bottlesCollected) / \(run.bottleCount) Bottles Collected  |  \(run.sitesComplete) / \(run.siteCount) Sites Completed")
                             .font(.caption)
                     }
                 }
@@ -114,9 +114,9 @@ struct SwipeDataRunPage : View {
             }.padding(.bottom, 10)
             
             
-            ForEach(allData.sites, id: \.id){ site in
+            ForEach(run.sites, id: \.id){ site in
                 SwipeDataSiteRow(
-                    allData : allData,
+                    run : run,
                     site : site)
             }
             
@@ -128,12 +128,12 @@ struct SwipeDataRunPage : View {
 
 struct SwipeDataSiteRow : View {
     
-    var allData : AllDataModel
+    var run : RunModel
     var site : SiteModel
     
     var body : some View {
         NavigationLink(destination: SwipeDataSitePage(
-                allData : allData,
+                run : run,
                 site : site)) {
             VStack {
                 HStack {
@@ -171,13 +171,13 @@ struct SwipeDataSiteRow : View {
 
 struct SwipeDataSitePage : View {
     
-    var allData : AllDataModel
+    var run : RunModel
     var site : SiteModel
     @State private var editedComment : String
     @State private var navigateToRunPage: Bool = false
     
-    init(allData: AllDataModel, site: SiteModel) {
-        self.allData = allData
+    init(run: RunModel, site: SiteModel) {
+        self.run = run
         self.site = site
         _editedComment = State(initialValue: site.comment)
     }
@@ -185,9 +185,9 @@ struct SwipeDataSitePage : View {
     var body : some View {
         VStack {
             VStack {
-                Text("\(allData.name)").font(.title3).bold()
+                Text("\(run.name)").font(.title3).bold()
                 HStack {
-                    Text("\(allData.bottlesCollected) / \(allData.bottleCount) Bottles Collected  |  \(allData.sitesComplete) / \(allData.siteCount) Sites Completed")
+                    Text("\(run.bottlesCollected) / \(run.bottleCount) Bottles Collected  |  \(run.sitesComplete) / \(run.siteCount) Sites Completed")
                         .font(.caption)
                 }
             }
@@ -226,7 +226,7 @@ struct SwipeDataSitePage : View {
             
             Spacer()
             
-            NavigationLink("",destination: SwipeDataRunPage(allData: allData),
+            NavigationLink("",destination: SwipeDataRunPage(run: run),
                            isActive: $navigateToRunPage).hidden()
                 
             

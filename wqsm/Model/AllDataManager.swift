@@ -9,9 +9,9 @@ import Foundation
 
 class AllDataManager: ObservableObject {
     
-    @Published var allDatas : [AllDataModel] = [
+    @Published var runs : [RunModel] = [
         
-        AllDataModel (//id: 0,
+        RunModel (//id: 0,
             name: "EB1 (MON) SUNOL",
             serial: "2303889", wn: "WN",
             numberSites: 3, numberCompleted: 2, numberOffline: 1, numberTasks: 12,
@@ -68,7 +68,7 @@ class AllDataManager: ObservableObject {
                 ]
            ),
         
-        AllDataModel (//id: 1,
+        RunModel (//id: 1,
                 name: "EB - Sunol NRD Pickup",
                 serial: "", wn: "WN",
                 numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0,
@@ -104,7 +104,7 @@ class AllDataManager: ObservableObject {
                 ]
              */
            ),
-        AllDataModel (//id: 2,
+        RunModel (//id: 2,
                 name: "EB1 (1st Mon) TESLA",
                  serial: "2304028", wn: "WN",
                  numberSites: 7, numberCompleted: 5, numberOffline: 2, numberTasks: 0,
@@ -160,7 +160,7 @@ class AllDataManager: ObservableObject {
                       ]                      ),
                 ]
            ),
-        AllDataModel (//id: 3,
+        RunModel (//id: 3,
                 name: "EB1 (1st Mon) w/THM",
                  serial: "2304024", wn: "WN",
                  numberSites: 9, numberCompleted: 8, numberOffline: 1, numberTasks: 0,
@@ -216,13 +216,13 @@ class AllDataManager: ObservableObject {
                       ]                      ),
                 ]
            ),
-        AllDataModel (//id: 4,
+        RunModel (//id: 4,
                 name: "EB - Deliver Sample Milbrae to Sunol",
                  serial: "", wn: "WN",
                  numberSites: 0, numberCompleted: 0, numberOffline: 0, numberTasks: 0,
             sites: []
          ),
-        AllDataModel (//id: 5,
+        RunModel (//id: 5,
                 name: "CITY A1 w/SS",
                  serial: "2304028", wn: "WN",
                  numberSites: 7, numberCompleted: 5, numberOffline: 2, numberTasks: 0,
